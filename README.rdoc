@@ -32,7 +32,7 @@ Please feel free to use a different markup language if you do not plan to run
 == Getting Started
 
 1. Environment
-	<tt>Ruby : 1.9.3 이상</tt>
+	<tt>Ruby : 2.2.2 이상</tt>
 	<tt>Database : Postgre</tt>
 
 2. Database User/Password Infomation (.bash_profile 등에 환경변수 설정)
