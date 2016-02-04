@@ -1,1 +1,0 @@
-json.id @<%= singular_name %>.id
