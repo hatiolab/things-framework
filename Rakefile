@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Eldiom::Application.load_tasks
+Elidom::Application.load_tasks
