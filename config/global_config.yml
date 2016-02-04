@@ -1,0 +1,20 @@
+main_title : Elidom
+default_page_size : 30
+diy_service_dir : service_logics
+default_domain : System
+default_lang : en-US
+default_timezone : Seoul
+default_date_format: '%Y-%m-%d'
+default_datetime_format: '%Y-%m-%d %H:%M'
+default_time_format: '%H:%M'
+date_format: '%Y-%m-%d'
+datetime_format: '%Y-%m-%d %H:%M'
+time_format: '%H:%M'
+shift_time_format: '%H:%M'
+to_date_db_func : date
+std_name : std
+ops_name : ctl
+default_lat : 37.381
+default_lng : 127.11846
+content_base_url : http://169.53.135.8:8300/
+content_base_dir : /usr/share/nginx/html

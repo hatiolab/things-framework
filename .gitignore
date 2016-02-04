@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-.gems
+/gems
 .ruby-version
 .rbenv-gemsets
 

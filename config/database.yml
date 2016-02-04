@@ -1,0 +1,27 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: elidom
+  username: shortstop
+  password: postgres
+  template: template0
+  pool:     5
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: elidom
+  username: shortstop
+  password: postgres
+  template: template0
+  pool:     5
+production:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: elidom
+  username: shortstop
+  password: postgres
+  template: template0
+  pool:     5
