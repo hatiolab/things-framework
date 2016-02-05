@@ -7,9 +7,9 @@ Ext.Loader.setConfig({
 	bundleRoot : 'assets/bundle/'
 });
 
-//Ext.require(['App.Framework']);
+Ext.require(['App.Framework']);
 
-Ext.define('App.util.AppBaseUrl',{
+/*Ext.define('App.util.AppBaseUrl',{
     singleton : true,
     alternateClassName : 'AppBaseUrl',
     requires:['Ext.Ajax'],
@@ -47,7 +47,7 @@ Ext.define('App.util.AppBaseUrl',{
 	}
 });
 
-Ext.require(['App.Framework', 'App.util.AppBaseUrl']);
+Ext.require(['App.Framework', 'App.util.AppBaseUrl']);*/
 
 Ext.onReady(function() {
 	Ext.application({
