@@ -9,7 +9,7 @@ module Hatio
         output = "columns : [\n"
         indent = "\t\t" unless indent
 
-    		output << "#{indent}{ dataIndex : '_cud_flag_', hidden : true,  value : '' },\n"
+    		output << "#{indent}{ dataIndex : 'cud_flag_', hidden : true,  value : '' },\n"
 		
         columns.each do |col|
           if(col.name == 'id')
@@ -203,7 +203,7 @@ module Hatio
             output << "#{indent}#{indent}#{indent}#{col.name} : '',\n"
           end
         end
-        output << "#{indent}#{indent}#{indent}_cud_flag_ : 'c'};\n"    
+        output << "#{indent}#{indent}#{indent}cud_flag_ : 'c'};\n"    
         output << "#{indent}#{indent}return Ext.create('#{options.bundle}.model.#{resourceName}', data);"
         output
       end

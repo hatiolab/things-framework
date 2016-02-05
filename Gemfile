@@ -35,7 +35,7 @@ group :production do
 end
 
 gem 'arel'
-#gem 'therubyracer'
+gem 'therubyracer'
 gem 'libv8'
 gem 'activerecord-session_store'
 gem 'dalli'

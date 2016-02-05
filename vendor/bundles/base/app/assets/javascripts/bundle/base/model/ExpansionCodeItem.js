@@ -14,7 +14,7 @@ Ext.define('Base.model.ExpansionCodeItem', {
 		{ name : 'unique_flag', 			type : 'boolean'},
 		{ name : 'ref_type', 				type : 'string' },
 		{ name : 'ref_name', 				type : 'string' },
-		{ name : '_cud_flag_', 				type : 'string' } 
+		{ name : 'cud_flag_', 				type : 'string' } 
 	],
 	
 	validations : [

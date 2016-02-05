@@ -9,6 +9,6 @@ Ext.define('Base.model.ServiceInParam', {
 		{ name : 'name', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'rank', type : 'integer' },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	]
 });

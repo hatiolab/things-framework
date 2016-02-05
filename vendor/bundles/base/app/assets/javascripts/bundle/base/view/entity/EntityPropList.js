@@ -19,7 +19,7 @@ Ext.define('Base.view.entity.EntityPropList', {
 			{ name : 'ref_name', 		type : 'string'  },
 			{ name : 'editable', 		type : 'false'   },
 			{ name : 'disp_rank', 	type : 'integer' },
-			{ name : '_cud_flag_', 		type : 'string'  }
+			{ name : 'cud_flag_', 		type : 'string'  }
 		]
 	}),
 	
@@ -103,7 +103,7 @@ Ext.define('Base.view.entity.EntityPropList', {
 			ref_type : '',
 			ref_name : '',
 			disp_rank : (this.store.getCount() + 1) * 10,
-			_cud_flag_ : ''
+			cud_flag_ : ''
 		};
 	}
 });

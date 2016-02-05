@@ -13,7 +13,7 @@ Ext.define('Base.view.role.RoleUser', {
 			{ name : 'login', 		type : 'string' },
 			{ name : 'name', 		type : 'string' },
 			{ name : 'email', 		type : 'string' },
-			{ name : '_cud_flag_', 	type : 'string' }
+			{ name : 'cud_flag_', 	type : 'string' }
 		]
 	}),
 	

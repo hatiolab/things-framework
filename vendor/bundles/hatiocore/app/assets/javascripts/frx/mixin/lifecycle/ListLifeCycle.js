@@ -160,11 +160,13 @@ Ext.define('Frx.mixin.lifecycle.ListLifeCycle', {
 				fn : function(confirmBtn) {
 					if(confirmBtn == 'yes') {
 						var records = [];
+						var self = this;
 						Ext.Array.each(selections, function(selection) {
 							// 이전에 삭제된 데이터가 같이 올라오는데 이 데이터에는 store가 null로 설정되어 있으므로 이 데이터는 제외 
 							if(selection.data.id && selection.store) {
-								selection.set('_cud_flag_', 'd');
-								records.push(selection.data);
+								selection.set('cud_flag_', 'd');
+								var data = self.validateMultipleUpdateData(Ext.clone(selection.data));
+								records.push(data);
 							}
 						});
 						if(records.length == 0) {
@@ -238,8 +240,11 @@ Ext.define('Frx.mixin.lifecycle.ListLifeCycle', {
 		
 		var self = this;
 		Ext.each(records, function(record) {
-			record.set('_cud_flag_', cudType);
+			record.set('cud_flag_', cudType);
 			var data = self.validateMultipleUpdateData(Ext.clone(record.getData()));
+			if(cudType == 'c') {
+				delete data['id'];
+			}			
 			recordList.push(data);
 		});
 	},
@@ -284,11 +289,12 @@ Ext.define('Frx.mixin.lifecycle.ListLifeCycle', {
 	 * @records
 	 */
 	updateList : function(grid, records) {
-		var updateType = records[0]._cud_flag_;
+		var updateType = records[0].cud_flag_;
 	    Ext.Ajax.request({
 		    url : this.getUpdateListUrl(grid),
 		    method : 'POST',
-		    params : { multiple_data : Ext.JSON.encode(records) },
+		    //params : { multiple_data : Ext.JSON.encode(records) },
+		    jsonData : Ext.JSON.encode(records),
 		    success : function(response) {
 				grid.fireEvent('after_update_list', grid, updateType, response);
 			},

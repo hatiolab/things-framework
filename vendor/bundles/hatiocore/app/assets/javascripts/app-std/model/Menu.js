@@ -20,6 +20,6 @@ Ext.define('App.model.Menu', {
 		{ name : 'updater_id', type : 'string' },
 		{ name : 'created_at', type : 'date' },
 		{ name : 'updated_at', type : 'date' },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	]
 });

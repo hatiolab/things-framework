@@ -83,7 +83,7 @@ Ext.define('Base.controller.common_code.CommonCodeItem', {
 		}
 		
 		Ext.each(records, function(record) {
-			record.set('_cud_flag_', cudType);
+			record.set('cud_flag_', cudType);
 			var data = this.validateMultipleUpdateData(Ext.clone(record.getData()));
 			recordList.push(data);
 		}, this);

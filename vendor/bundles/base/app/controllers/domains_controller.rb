@@ -138,7 +138,7 @@ class DomainsController < InheritedResources::Base
     delete_list, update_list, create_list = [], [], [];
 
     data_list.each do |data|
-      cud_flag = data.delete('_cud_flag_')
+      cud_flag = data.delete('cud_flag_')
       if(cud_flag == "d")
         delete_list << data['id']
       elsif(cud_flag == "u")

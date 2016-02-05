@@ -86,7 +86,7 @@ Ext.define('Base.controller.entity.EntityItem', {
 	onPopupSave : function(popup) {
 		var logicId = popup.down('form').getForm().getValues().id;
 		var logic = popup.down('form').down('component#editor').editor.getValue();
-		var data = [ {"id" : logicId, "logic" : logic, "_cud_flag_" : (logicId ? 'u' : 'c')} ];
+		var data = [ {"id" : logicId, "logic" : logic, "cud_flag_" : (logicId ? 'u' : 'c')} ];
 		Ext.Ajax.request({
 			url : 'entities/' + this.record.get('id') + '/update_multiple_entity_logics.json',
 			method : 'POST',
@@ -291,7 +291,7 @@ Ext.define('Base.controller.entity.EntityItem', {
 			delete entity.data["updater_id"]
 			delete entity.data["creator"]
 			delete entity.data["updater"]
-			delete entity.data["_cud_flag_"]
+			delete entity.data["cud_flag_"]
 			return entity;
 		}
 	},

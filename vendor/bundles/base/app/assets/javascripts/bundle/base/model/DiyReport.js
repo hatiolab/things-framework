@@ -15,7 +15,7 @@ Ext.define('Base.model.DiyReport', {
 		{ name : 'service_url', type : 'string' },
 		{ name : 'service_in_params', type : 'auto' }, 
 		{ name : 'service_out_params', type : 'auto' },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	],
 	
 	validations : [

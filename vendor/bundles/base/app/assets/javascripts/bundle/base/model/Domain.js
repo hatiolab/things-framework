@@ -14,7 +14,7 @@ Ext.define('Base.model.Domain', {
 		{ name : 'updater', type : 'auto' },
 		{ name : 'created_at', type : 'date' }, 
 		{ name : 'updated_at', type : 'date' }, 
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	],
 	
 	validations : [

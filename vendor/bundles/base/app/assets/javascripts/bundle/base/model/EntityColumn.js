@@ -17,7 +17,7 @@ Ext.define('Base.model.EntityColumn', {
 		{ name : 'ref_name', 		type : 'string' },
 		{ name : 'list_rank', 		type : 'integer'},
 		{ name : 'disp_rank', 		type : 'integer'},
-		{ name : '_cud_flag_', 		type : 'string' } 
+		{ name : 'cud_flag_', 		type : 'string' } 
 	],
 	
 	validations : [

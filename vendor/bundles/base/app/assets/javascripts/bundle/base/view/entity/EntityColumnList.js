@@ -150,7 +150,7 @@ Ext.define('Base.view.entity.EntityColumnList', {
 			ref_name : '',
 			list_rank : 0,
 			disp_rank : (this.store.getCount() + 1) * 10,
-			_cud_flag_ : ''
+			cud_flag_ : ''
 		};
 	}
 });

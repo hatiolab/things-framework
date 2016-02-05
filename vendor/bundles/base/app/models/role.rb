@@ -86,7 +86,7 @@ class Role < ActiveRecord::Base
     transaction do
       delete_list, create_list = [], []
       roleUserList.each do |data|
-        cud_flag = data.delete('_cud_flag_')
+        cud_flag = data.delete('cud_flag_')
         delete_list << data if(cud_flag == "d")
         create_list << data if(cud_flag == "c")
       end

@@ -339,7 +339,7 @@ module Hatio
         end
 
         output << "#{indent}{ name : 'properties_attributes', type : 'auto', defaultValue : [] },\n" if('y' == options.use_ext_prop)
-        output << "#{indent}{ name : '_cud_flag_', type : 'string' }\n\t]"
+        output << "#{indent}{ name : 'cud_flag_', type : 'string' }\n\t]"
 
         unless(validations.empty?)
           output << ",\n\n\tvalidations : [\n"

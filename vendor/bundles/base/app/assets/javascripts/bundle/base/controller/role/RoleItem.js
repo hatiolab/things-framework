@@ -167,7 +167,7 @@ Ext.define('Base.controller.role.RoleItem', {
 					var selections = view.getSelectionModel().getSelection();
 					var records = [];
 					Ext.Array.each(selections, function(selection) {
-						selection.set('_cud_flag_', 'd');
+						selection.set('cud_flag_', 'd');
 						records.push(selection.data);
 					});
 
@@ -183,7 +183,7 @@ Ext.define('Base.controller.role.RoleItem', {
 	addRoleUsers : function(view, selections) {
 		var records = [];
 		Ext.Array.each(selections, function(selection) {
-			selection.set('_cud_flag_', 'c');
+			selection.set('cud_flag_', 'c');
 			records.push(selection.data);
 		});
 		

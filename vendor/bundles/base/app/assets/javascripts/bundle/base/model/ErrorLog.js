@@ -14,7 +14,7 @@ Ext.define('Base.model.ErrorLog', {
 		{ name : 'creator_id', type : 'integer' },
 		{ name : 'creator', type : 'auto' },
 		{ name : 'created_at', type : 'date' },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	],
 
 	validations : [

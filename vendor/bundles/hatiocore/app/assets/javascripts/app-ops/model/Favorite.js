@@ -47,7 +47,7 @@ Ext.define('App.model.Favorite', {
 		name: 'updated_at',
 		type: 'date'
 	}, {
-		name: '_cud_flag_',
+		name: 'cud_flag_',
 		type: 'string'
 	}],
 

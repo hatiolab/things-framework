@@ -170,7 +170,7 @@ Ext.define('Frx.controller.ListController', {
 		var selectParams = [];
 		// 그리드의 헤더 정보를 얻어와 select fields 파라미터를 만든다. select field 파라미터는 결정 필요
 		Ext.Array.each(grid.columns, function(column) {
-			if(column.dataIndex && column.dataIndex != '_cud_flag_') {
+			if(column.dataIndex && column.dataIndex != 'cud_flag_') {
 				selectParams.push(column.dataIndex);
 			}
 		});

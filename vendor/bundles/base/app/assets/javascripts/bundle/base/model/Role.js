@@ -10,7 +10,7 @@ Ext.define('Base.model.Role', {
 		{ name : 'updater', type : 'auto' },
 		{ name : 'created_at', type : 'date' }, 
 		{ name : 'updated_at', type : 'date' },
-		{ name : '_cud_flag_', type : 'string' } 
+		{ name : 'cud_flag_', type : 'string' } 
 	],
 	
 	validations : [

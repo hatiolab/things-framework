@@ -50,7 +50,7 @@ class ResourceMultiUpdateController < DomainResourcesController
     delete_list, update_list, create_list = [], [], [];
   
     data_list.each do |data|
-      cud_flag = data.delete('_cud_flag_')
+      cud_flag = data.delete('cud_flag_')
       delete_list << data[id_field] if(cud_flag == "d")
       update_list << data if(cud_flag == "u")
       create_list << data if(cud_flag == "c")

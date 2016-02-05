@@ -16,7 +16,7 @@ Ext.define('Base.view.entity.EntityLogicList', {
 			{ name : 'description', 	type : 'string'  },
 			{ name : 'level', 			type : 'string'  },
 			{ name : 'logic', 			type : 'string'  },
-			{ name : '_cud_flag_', 		type : 'string'  }
+			{ name : 'cud_flag_', 		type : 'string'  }
 		]
 	}),
 	
@@ -96,7 +96,7 @@ Ext.define('Base.view.entity.EntityLogicList', {
 			description : '',
 			level : '',
 			logic : '',
-			_cud_flag_ : ''
+			cud_flag_ : ''
 		};
 	}
 });

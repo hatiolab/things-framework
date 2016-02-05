@@ -8,7 +8,7 @@ Ext.define('Base.model.MenuParam', {
 		{ name : 'name', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'value', type : 'string' },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	],
 	
 	validations : [

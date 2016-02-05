@@ -41,7 +41,7 @@ Ext.define('Base.view.report.Report', {
 		width: 130
 	}, {
 		header: 'cud flag',
-		dataIndex: '_cud_flag_',
+		dataIndex: 'cud_flag_',
 		hidden: true,
 		sortable: false,
 		width: 0,

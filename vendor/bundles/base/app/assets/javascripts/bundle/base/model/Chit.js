@@ -17,7 +17,7 @@ Ext.define('Base.model.Chit', {
 		{ name : 'created_at', type : 'date' },
 		{ name : 'updated_at', type : 'date' },
 		{ name : 'properties_attributes', type : 'auto', defaultValue : [] },
-		{ name : '_cud_flag_', type : 'string' }
+		{ name : 'cud_flag_', type : 'string' }
 	],
 
 	validations : [
