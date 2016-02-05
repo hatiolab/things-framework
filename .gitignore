@@ -22,3 +22,8 @@
 # Ignore public asset directory
 /public/assets
 
+# Database.yml
+/config/database.yml
+
+# Gemfile.lock
+/Gemfile.lock

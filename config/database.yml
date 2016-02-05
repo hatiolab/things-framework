@@ -1,27 +1,27 @@
 development:
   adapter:  postgresql
-  host:     localhost
+  host:     192.168.35.155
   encoding: unicode
-  database: elidom
-  username: shortstop
-  password: postgres
+  database: elidom_dev
+  username: postgres
+  password: 1
   template: template0
   pool:     5
 test:
   adapter:  postgresql
-  host:     localhost
+  host:     192.168.35.155
   encoding: unicode
-  database: elidom
-  username: shortstop
-  password: postgres
+  database: elidom_dev
+  username: postgres
+  password: 1
   template: template0
   pool:     5
 production:
   adapter:  postgresql
-  host:     localhost
+  host:     192.168.35.155
   encoding: unicode
-  database: elidom
-  username: shortstop
-  password: postgres
+  database: elidom_dev
+  username: postgres
+  password: 1
   template: template0
   pool:     5
