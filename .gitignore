@@ -23,7 +23,7 @@
 /public/assets
 
 # Database.yml
-/config/database.yml
+config/database.yml
 
 # Gemfile.lock
-/Gemfile.lock
+Gemfile.lock
