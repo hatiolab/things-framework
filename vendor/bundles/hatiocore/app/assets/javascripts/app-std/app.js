@@ -19,13 +19,32 @@ Ext.define('App.util.AppBaseUrl',{
     },
  
     constructor : function(config) {
-            this.initConfig(config);
-            Ext.Ajax.on('beforerequest', this.onBeforeAjaxRequest, this);
+		this.initConfig(config);
+		Ext.Ajax.on('beforerequest', this.onBeforeAjaxRequest, this);
     },
  
     onBeforeAjaxRequest : function(connection, options) {
-              options.url = this.getBaseUrl() + options.url;
-    }
+		if(options && options.method == 'PUT' && options.action == "update") {
+			options = this.filterRestUpdate(options); 
+		}
+
+		options.url = this.getBaseUrl() + options.url;
+    },
+
+	filterRestUpdate : function(options) {
+		if(options.scope && options.scope.writer && options.scope.writer.root) {
+			var rootName = options.scope.writer.root;
+			var jsonData = options.jsonData[rootName];
+			if(jsonData) {
+				Ext.Array.each(['creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+					delete jsonData[key];
+				});
+				options.jsonData = jsonData;
+			}
+		}
+
+		return options;
+	}
 });
 
 Ext.require(['App.Framework', 'App.util.AppBaseUrl']);
