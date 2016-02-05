@@ -55,7 +55,7 @@ class DiyServicesController < ResourceMultiUpdateController
     # update parameters
     #
     def update_parameters(diyService, parameterResource)
-      delete_list, update_list, create_list = refine_multiple_data(params[:multiple_data], 'id')
+      delete_list, update_list, create_list = refine_multiple_data(params['_json'], 'id')
       parameterResource.transaction do
         # 1. delete
         destroy_multiple_data(parameterResource, delete_list)

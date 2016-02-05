@@ -134,7 +134,7 @@ class DomainsController < InheritedResources::Base
   end
   
   def update_multiple
-    data_list = JSON.parse params[:multiple_data]
+    data_list = JSON.parse params['_json']
     delete_list, update_list, create_list = [], [], [];
 
     data_list.each do |data|

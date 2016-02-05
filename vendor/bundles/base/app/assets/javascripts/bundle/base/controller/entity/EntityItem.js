@@ -90,7 +90,8 @@ Ext.define('Base.controller.entity.EntityItem', {
 		Ext.Ajax.request({
 			url : 'entities/' + this.record.get('id') + '/update_multiple_entity_logics.json',
 			method : 'POST',
-			params : { multiple_data : Ext.JSON.encode(data) },
+			//params : { multiple_data : Ext.JSON.encode(data) },
+			jsonData : Ext.JSON.encode(data),
 			success : function(response) {
 				var res = Ext.JSON.decode(response.responseText);
 				HF.current.view().down('base_entity_logic_list').store.loadRawData(res.items);

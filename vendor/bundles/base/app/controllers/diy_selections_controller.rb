@@ -88,7 +88,7 @@ private
   end
   
   def update_parameters(diySelection, parameterClass)
-    delete_list, update_list, create_list = refine_multiple_data(params[:multiple_data], 'id')
+    delete_list, update_list, create_list = refine_multiple_data(params['_json'], 'id')
     parameterClass.transaction do
       # 1. delete
       destroy_multiple_data(parameterClass, delete_list)

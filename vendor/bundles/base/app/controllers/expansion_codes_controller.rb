@@ -7,7 +7,7 @@ public
   # 
   def update_multiple_items
     exp_code = ExpansionCode.find(params[:id])
-    delete_list, update_list, create_list = refine_multiple_data(params[:multiple_data], 'id')
+    delete_list, update_list, create_list = refine_multiple_data(params['_json'], 'id')
 
     ExpansionCodeItem.transaction do
       # 1. delete

@@ -43,7 +43,7 @@ class EntitiesController < ResourceMultiUpdateController
     # post entities/:id/update_multiple_entity_columns.json
     #
     def update_multiple_entity_columns
-      update_multiple_details(EntityColumn, params[:multiple_data])
+      update_multiple_details(EntityColumn, params['_json'])
       @entity = Entity.find(params[:id])
       @entity_columns = @entity.entity_columns
       
@@ -57,7 +57,7 @@ class EntitiesController < ResourceMultiUpdateController
     # post entities/:id/update_multiple_entity_props.json
     #
     def update_multiple_entity_props
-      update_multiple_details(EntityProperty, params[:multiple_data])
+      update_multiple_details(EntityProperty, params['_json'])
       @entity = Entity.find(params[:id])
       @entity_props = @entity.entity_properties
       
@@ -71,7 +71,7 @@ class EntitiesController < ResourceMultiUpdateController
     # post entities/:id/update_multiple_entity_logics.json
     #
     def update_multiple_entity_logics
-      update_multiple_details(EntityLogic, params[:multiple_data])
+      update_multiple_details(EntityLogic, params['_json'])
       @entity = Entity.find(params[:id])
       @entity_logics = @entity.entity_logics
       

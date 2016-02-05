@@ -109,7 +109,7 @@ class MenusController < ResourceMultiUpdateController
   # 
   def update_multiple_menu_params
     menu = Menu.find(params[:id])
-    delete_list, update_list, create_list = refine_multiple_data(params[:multiple_data], 'id')
+    delete_list, update_list, create_list = refine_multiple_data(params['_json'], 'id')
 
     MenuParam.transaction do
       # 1. delete
