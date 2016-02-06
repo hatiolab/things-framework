@@ -8,6 +8,7 @@ Ext.define('Base.model.Rest', {
 		{ name : 'module', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'bean_class_name', type : 'string' },
+		{ name : 'api_list', type: 'auto' },
 		{ name : 'creator_id', type : 'integer' },
 		{ name : 'creator', type : 'auto' },
 		{ name : 'created_at', type : 'date' },
