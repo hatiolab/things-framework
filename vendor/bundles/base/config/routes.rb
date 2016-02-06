@@ -1,5 +1,13 @@
 Base::Engine.routes.draw do
   # RESOURCES BEGIN BLOCK DON'T REMOVE
+	resources :rests do
+		collection do
+			post :update_multiple
+			get :show_by_name
+			get :export
+		end
+	end
+
 	resources :code_expansions do
 		collection do
 			post :update_multiple

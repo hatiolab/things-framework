@@ -29,7 +29,7 @@ Ext.define('App.util.AppBaseUrl',{
 
 		} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
 			this.hookRestSearch(options.params); 
-		}
+		} 
 
 		options.url = this.getBaseUrl() + options.url;
     },
@@ -115,7 +115,8 @@ Ext.define('App.util.AppBaseUrl',{
 
 			for(var i = 0 ; i < searchKeys.length ; i++) {
 				var key = searchKeys[i];
-				if(params[key]) {
+
+				if(!this.skipConvertSearchCondition(params, key)) {
 					var prop = key.substr(3, key.length - 4);
 					query.push(this.convertSearchCondition(params, prop, params[key]));
 				}
@@ -130,6 +131,27 @@ Ext.define('App.util.AppBaseUrl',{
 	},
 
 	/**
+	 * 검색 조건 변환 스킵 여부  
+	 */
+	skipConvertSearchCondition : function(params, propName) {
+		var skip = false;
+
+		if(!params[propName]) {
+			skip = true;
+		}
+
+		if(skip == true) {
+			Ext.Array.each(['is_null]', 'is_not_null]', 'is_true]', 'is_false]', 'is_present]', 'is_blank]'], function(key) {
+				if(propName.indexOf(key, propName.length - key.length) !== -1) {
+					skip = false;
+				} 
+			});
+		}
+
+		return skip;
+	},
+
+	/**
 	 * search condition 변환 
 	 * {_q[entity_type-eq] : 'abc'} 형식의 파라미터를 {'name' : 'entityType', 'operator' : 'eq', 'value' : 'abc'} 형식의 문자열로 변환 
 	 */
@@ -137,6 +159,7 @@ Ext.define('App.util.AppBaseUrl',{
 		var propArr = prop.split('-');
 		var operator = propArr[1] || 'eq';
 		var name = HF.camelize(propArr[0]);
+		value = (value == undefined) ? null : value;
 		return '{"name":"' + name + '", "operator":"' + operator + '", "value":"' + value + '"}';
 	},
 

@@ -51,7 +51,7 @@ Ext.define('Base.view.user.User', {
 		text : T('label.email'),
 		width : 200
 	}, { 
-		header : T('menu.Company'), 
+		header : T('label.domain_id'), 
 		dataIndex : 'domain', 
 		xtype : 'entitycolumn', 
 		editor : { 

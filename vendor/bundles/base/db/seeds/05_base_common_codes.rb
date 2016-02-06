@@ -9,7 +9,6 @@ CommonCode.setup :LOCALE, {:description => 'Locale code'} do
   code 'en-US' => 'English'
   code 'ko-KR' => '한글'
   code 'zh-CN' => '中文'
-  code 'th-TH' => 'ไทย'
 end
 
 CommonCode.setup :TERMS_CATEGORY, {:description => 'Terminology categories'} do
@@ -51,6 +50,8 @@ end
 CommonCode.setup :ENTITY_FIELD_TYPE, {:description => 'Entity Field Type'} do
   code :string => 'string'
   code :text => 'text'
+  code :long => 'long'
+  code :double => 'double'
   code :integer => 'integer'
   code :float => 'float'
   code :decimal => 'decimal'

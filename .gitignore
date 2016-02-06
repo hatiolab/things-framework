@@ -11,6 +11,7 @@
 .rbenv-gemsets
 
 # Ignore the default SQLite database.
+/db/schema.rb
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
@@ -21,6 +22,7 @@
 
 # Ignore public asset directory
 /public/assets
+/public/uploads/**
 
 # Database.yml
 config/database.yml
