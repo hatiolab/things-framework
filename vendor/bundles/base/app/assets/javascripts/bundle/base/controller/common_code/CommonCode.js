@@ -41,7 +41,7 @@ Ext.define('Base.controller.common_code.CommonCode', {
 	 * @data
 	 */
 	validateMultipleUpdateData : function(data) {
-		Ext.Array.each(['items', ' creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+		Ext.Array.each(['items', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
 			delete data[key];
 		});
 
