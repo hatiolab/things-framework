@@ -103,7 +103,10 @@ T({
 		'movie' : 'Movie',
 		'parameter' : 'Parameter',
 		'stack_trace' : 'Stack Trace',
-		'unique' : 'Unique'
+		'unique' : 'Unique',
+		'path' : 'Path',
+		'service_class' : 'Service Class',
+		'file' : 'File'
 	},
 	title : {
 		'item' : 'Item',
@@ -155,7 +158,9 @@ T({
 		'Chit' : 'Chit',
 		'ErrorLog' : 'Error Log',
 		'ExpansionCode' : 'Code Definition',
-		'CodeExpansion' : 'Expansion Code'
+		'CodeExpansion' : 'Expansion Code',
+		'StorageInfo' : 'Storage',
+		'Rest' : 'Service API'
 	},
 	button : {
 		'report' : 'Report',

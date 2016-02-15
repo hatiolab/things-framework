@@ -59,7 +59,7 @@ Ext.define('App.controller.ApplicationController', {
 
 		HF.mixin('App.mixin.ErrorHandler');
 
-		HF.custom.titlebar({
+		/*HF.custom.titlebar({
 			xtype : 'button',
 			tooltip : T('button.pageinfo'),
 			cls : 'btnPageInfo',
@@ -79,7 +79,7 @@ Ext.define('App.controller.ApplicationController', {
 				    }
 				});
 			}
-		});
+		});*/
 
 		HF.custom.titlebar({
 			xtype : 'button',
@@ -295,7 +295,7 @@ Ext.define('App.controller.ApplicationController', {
 		// Ext.getStore('Favorite').load();
 
 		// 첫 화면에 도메인에 지정된 Infographic을 보임
-		Ext.Ajax.request({
+		/*Ext.Ajax.request({
 		    url: 'infographics/show_by_entity.json',
 			params : {
 				entity_type : 'Domain'
@@ -311,7 +311,7 @@ Ext.define('App.controller.ApplicationController', {
 
 				v.collection.load(infographic.diagram);
 		    }
-		});
+		});*/
 
 		// 원할한 화면 레이아웃팅을 위해서 강제로 지연시킴.
 		setTimeout(function() {

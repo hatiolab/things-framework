@@ -4,19 +4,18 @@ Ext.define('Base.view.storage_info.StorageFiles', {
 		
 	xtype : 'base_storage_info_files',
 	
-	title : T('title.files'),
+	title : T('button.file'),
+
+	layout : {
+		type : 'vbox',
+		align : 'stretch'
+	},
 
 	items : [{
 		xtype : 'component',
-		id : 'grdMain',
 		itemId : 'grdContainer',
-		width: '740px',
-        height: '313px',
-        items: [{
-        	xtype : 'button',
-        	itemId : 'createGrid',
-        	text : 'createGrid'
-        }]
+		id : 'grdMain',
+		flex : 1
 	}],
 	
 	dockedItems: [ {

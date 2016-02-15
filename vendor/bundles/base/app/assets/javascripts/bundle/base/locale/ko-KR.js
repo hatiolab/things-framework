@@ -131,7 +131,10 @@ T({
 		'change_password' : '패스워드 변경',
 		'preview' : '미리보기',
 		'add_common_code' : '공통 코드 추가',
-		'unique' : '고유'
+		'unique' : '고유',
+		'path' : '경로',
+		'service_class' : 'Service Class',
+		'file' : '파일'		
 	},
 	menu : {
 		'Domain' : '도메인',
@@ -157,7 +160,9 @@ T({
 		'Chit' : '전표',
 		'ErrorLog' : '에러 로그',
 		'ExpansionCode' : '코드 정의',
-		'CodeExpansion' : '확장 코드'
+		'CodeExpansion' : '확장 코드',
+		'StorageInfo' : '저장소 관리',
+		'Rest' : 'Service API'
 	},
 	button : {
 		'report' : '리포트',

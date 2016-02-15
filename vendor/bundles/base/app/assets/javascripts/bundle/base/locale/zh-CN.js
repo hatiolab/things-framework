@@ -102,7 +102,10 @@ T({
 		'movie' : '幻灯片',
 		'parameter' : '参数',
 		'stack_trace' : '堆叠追踪',
-		'unique' : 'Unique'
+		'unique' : 'Unique',
+		'path' : 'Path',
+		'service_class' : 'Service Class',
+		'file' : 'File'
 	},
 	title : {
 		'item' : '项',
@@ -159,7 +162,9 @@ T({
 		'Chit' : '便条',
 		'ErrorLog' : '错误记录',
 		'ExpansionCode' : 'Code Definition',
-		'CodeExpansion' : 'Expansion Code'
+		'CodeExpansion' : 'Expansion Code',
+		'StorageInfo' : 'Storage',
+		'Rest' : 'Service API'
 	},
 	button : {
 		'report' : '报表',

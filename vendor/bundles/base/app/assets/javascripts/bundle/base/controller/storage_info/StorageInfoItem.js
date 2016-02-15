@@ -24,12 +24,6 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 
     refs: [ { ref : 'FileView', selector : 'base_storage_info_files' } ],
 	
-    gridMode : 'canvas',
-
-	// gridView : DataLudi.createGridView('grdMain', null, gridMode == 'dom' ? '$_html_test_' : '');
-	gridVw : null,
-
-
 	init : function() {
 		this.callParent(arguments);
 		
@@ -37,32 +31,30 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 			'base_storage_info_item' : this.EntryPoint(),
 			'base_storage_info_form' : this.FormEventHandler(),
             'base_storage_info_files': {
-                click_show : this.onAfterLoadItemForFiles
+                click_show : this.showDataGrid
             }
 		});
 	},
 	
-	onAfterLoadItemForFiles : function() {
-        var grd = DataLudi.createGridView('indexGrd', []);
-        // var grid = new DataLudi.GridComponent(null, 'indexGrd').gridView();
-		// var columnName = {
-		// 	ProductId: "제품코드",
-		// 	ProductName: "제품명",
-		// 	CustomerId: "고객아이디",
-		// 	CustomerName: "고객명",
-		// 	Country: "국가",
-		// 	Phone: "전화번호",
-		// 	Unit: "단위",
-		// 	Currency: "통화",
-		// 	UnitPrice: "단가",
-		// 	Quantity: "수량",
-		// 	OrderDate: "발주일",
-		// 	ShipDate: "선적일",
-		// 	Sum: "합계"
-		// };
+	showDataGrid : function() {
+		var columnName = {
+			ProductId: "제품코드",
+			ProductName: "제품명",
+			CustomerId: "고객아이디",
+			CustomerName: "고객명",
+			Country: "국가",
+			Phone: "전화번호",
+			Unit: "단위",
+			Currency: "통화",
+			UnitPrice: "단가",
+			Quantity: "수량",
+			OrderDate: "발주일",
+			ShipDate: "선적일",
+			Sum: "합계"
+		};
 
-  //       this.gridVw = this.gridManager(columnName);
-  //       this.gridVw.initGrid();
+        var gridVw = this.gridManager(columnName);
+        gridVw.initGrid();
 	},
 
 	gridListExport: function() {
@@ -79,23 +71,17 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
         });
     },
 
-	// setGridData : function(dataSet){
-
-	// 	// Ext.Ajax.request({
-	// 	// 	url: 'attachments.json',
-	// 	// 	method: 'GET',
-	// 	// 	scope : this,
-	// 	// 	success: function(response) {
-	// 	// 		var data = Ext.JSON.decode(response.responseText);
-	// 	// 		new DataLudi.DataLoader(dataSet).load("json", data, {});
-	// 	// 	}
-	// 	// 	//TODO : Failure control
-	// 	// 	// ,
-	// 	// 	// failure : function(response){
-
-	// 	// 	// }
-	// 	// });
-	// },
+	/*setGridData : function(dataSet) {
+		Ext.Ajax.request({
+			url: 'attachments.json',
+			method: 'GET',
+			scope : this,
+			success: function(response) {
+				var data = Ext.JSON.decode(response.responseText);
+				new DataLudi.DataLoader(dataSet).load("json", data, {});
+			}
+		});
+	},*/
 
     setGridData: function(ds) {
         var data = "product_id,product_name,customer_id,customer_name,country,phone,unit,currency,unit_price,quantity,order_date,ship_date\n";
@@ -104,20 +90,15 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
         data += "vivamus,vestibulum ante,cum,etiam justo,Panama,0-(465)962-4766,vulputate,PAB,446.14,407,2015/06/11,2015-03-29T10:20:22Z";
 
         var jsonData = this.csvJSON(data);
-        console.log(jsonData);
         return new DataLudi.DataLoader(ds).load("json", jsonData, {});
     },
 
-    csvJSON: function(csv) {
-
+    csvJSON : function(csv) {
         var lines = csv.split("\n");
-
         var result = [];
-
         var headers = lines[0].split(",");
 
         for (var i = 1; i < lines.length; i++) {
-
             var obj = {};
             var currentline = lines[i].split(",");
 
@@ -126,11 +107,9 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
             }
 
             result.push(obj);
-
         }
 
-        return result; //JavaScript object
-        // return JSON.stringify(result); //JSON
+        return result;
     },
 
 	getJsonFields : function (jsonObject) {
@@ -185,7 +164,6 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
                 dsMain = DataLudi.createGridDataSet();
                 dsMain.setFields(fields);
                 me.setGridData(dsMain);
-
 
                 var columns = [{
                     "name": "ProductId",
@@ -325,16 +303,9 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
                     }
                 }];
 				
-                var gridMain = Ext.getCmp('grdMain');
-				console.log(gridMain);
-                var _mode = 'canvas';
-                grdMain = DataLudi.createGridView('grdMain', null, _mode == 'dom' ? '$_html_test_' : '');
-                grdMain.setColumns(columns);
-                
-                // grdMain.setColumns(columns);
-
+                grdMain = DataLudi.createGridView('grdMain', columns, '');
                 grdMain.setDataSource(dsMain);
-                grdMain.checkBar().setVisible(false);
+                grdMain.checkBar().setVisible(true);
 
                 grdMain.header().head().setPopupMenu({
                     label: 'DataLudi Grid Version',
@@ -349,10 +320,13 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
                         Ext.Msg.alert('onDataCellClicked', v);
                     }
                 };
+
                 grdMain.onColumnHeaderDblClicked = function(grid, column) {
                     Ext.Msg.alert('onColumnHeaderDblClicked', column.name());
-                };//method end
-            }//public funciton end
-        };//return end
-    }//object end
-});// class end
+                };
+
+            }
+        };
+    }
+
+});
