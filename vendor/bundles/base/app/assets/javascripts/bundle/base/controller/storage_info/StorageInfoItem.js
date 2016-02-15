@@ -24,6 +24,8 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 
     refs: [ { ref : 'FileView', selector : 'base_storage_info_files' } ],
 	
+    gridView : null,
+
 	init : function() {
 		this.callParent(arguments);
 		
@@ -31,7 +33,9 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 			'base_storage_info_item' : this.EntryPoint(),
 			'base_storage_info_form' : this.FormEventHandler(),
             'base_storage_info_files': {
-                click_show : this.showDataGrid
+                click_show : this.showDataGrid,
+                click_export: this.gridListExport,
+                click_download: this.downloadFile
             }
 		});
 	},
@@ -53,8 +57,8 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 			Sum: "합계"
 		};
 
-        var gridVw = this.gridManager(columnName);
-        gridVw.initGrid();
+        gridView = this.gridManager(columnName);
+        gridView.initGrid();
 	},
 
 	gridListExport: function() {
@@ -71,17 +75,24 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
         });
     },
 
-	/*setGridData : function(dataSet) {
+	getGridData : function(callback) {
 		Ext.Ajax.request({
 			url: 'attachments.json',
 			method: 'GET',
 			scope : this,
 			success: function(response) {
-				var data = Ext.JSON.decode(response.responseText);
-				new DataLudi.DataLoader(dataSet).load("json", data, {});
-			}
+				var data = Ext.JSON.decode(response.responseText);	
+                callback(data.items);		
+            }
 		});
-	},*/
+	},
+
+    downloadFile : function(fileView) {
+        var form = fileView.down('#downloadForm');
+        var paramFiled = form.down('#formParam');
+        paramFiled.setValue('site_brand.png');
+        form.submit();
+    },
 
     setGridData: function(ds) {
         var data = "product_id,product_name,customer_id,customer_name,country,phone,unit,currency,unit_price,quantity,order_date,ship_date\n";
@@ -134,196 +145,53 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
             init: function() {},
             initGrid: function() {
                 var fields = [{
-                        fieldName: "product_id",
-                        dataType: "text",
+                        fieldName: "created_at"
                     }, {
-                        fieldName: "product_name"
-                    }, {
-                        fieldName: "customer_id"
-                    },
-                    "customer_name",
-                    "country",
-                    "phone",
-                    "unit",
-                    "currency", {
-                        fieldName: "unit_price",
-                        dataType: "number"
-                    }, {
-                        fieldName: "quantity",
-                        dataType: "number"
-                    }, {
-                        fieldName: "order_date",
-                        dataType: "datetime",
-                        datetimeFormat: "yyyy-MM-dd"
-                    }, {
-                        fieldName: "ship_date",
-                        dataType: "datetime",
-                        datetimeFormat: "iso"
+                        fieldName: "name"
                     }
                 ];
                 dsMain = DataLudi.createGridDataSet();
                 dsMain.setFields(fields);
-                me.setGridData(dsMain);
 
-                var columns = [{
-                    "name": "ProductId",
-                    "fieldName": "product_id",
-                    "width": "90",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["ProductId"]
-                    }
-                }, {
-                    "name": "ProductName",
-                    "fieldName": "product_name",
-                    "width": "90",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["ProductName"]
-                    }
-                }, {
-                    "name": "CustomerId",
-                    "fieldName": "customer_id",
-                    "width": "90",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["CustomerId"]
-                    }
-                }, {
-                    "name": "CustomerName",
-                    "fieldName": "customer_name",
-                    "width": "90",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["CustomerName"]
-                    }
-                }, {
-                    "name": "Country",
-                    "fieldName": "country",
-                    "width": "70",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["Country"]
-                    }
-                }, {
-                    "name": "Phone",
-                    "fieldName": "phone",
-                    "width": "100",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["Phone"]
-                    }
-                }, {
-                    "name": "Unit",
-                    "fieldName": "unit",
-                    "width": "90",
-                    "styles": {},
-                    "header": {
-                        "text": columnName["Unit"]
-                    }
-                }, {
-                    "name": "Currency",
-                    "fieldName": "currency",
-                    "width": "60",
-                    "styles": {
-                        "textAlignment": "center"
-                    },
-                    "header": {
-                        "text": columnName["Currency"]
-                    }
-                }, {
-                    "name": "UnitPrice",
-                    "fieldName": "unit_price",
-                    "width": "100",
-                    "styles": {
-                        "textAlignment": "far"
-                    },
-                    "header": {
-                        "text": "UnitPrice"
-                    },
-                    "footer": {
-                        "styles": {
-                            "textAlignment": "far",
-                            "numberFormat": "0,000",
-                            "postfix": " $",
-                            "font": "Arial,12"
-                        },
-                        "text": columnName["SUM"],
-                        "expression": "sum",
-                        "dynamicStyles": [{
-                            "criteria": "value > 10000",
-                            "styles": "color=#ff0000"
-                        }]
-                    }
-                }, {
-                    "name": "Quantity",
-                    "fieldName": "quantity",
-                    "width": "100",
-                    "styles": {
-                        "textAlignment": "far"
-                    },
-                    "header": {
-                        "text": "Quantity"
-                    },
-                    "footer": {
-                        "styles": {
-                            "textAlignment": "far",
-                            "numberFormat": "0,000",
-                            "postfix": " $",
-                            "font": "Arial,12"
-                        },
-                        "text": columnName["SUM"],
-                        "expression": "sum",
-                        "dynamicStyles": [{
-                            "criteria": "value > 10000",
-                            "styles": "color=#ff0000"
-                        }]
-                    }
-                }, {
-                    "name": "OrderDate",
-                    "fieldName": "order_date",
-                    "width": "90",
-                    "styles": {
-                        datetimeFormat: "yyyy-MM-dd",
-                        textAlignment: "center"
-                    },
-                    "header": {
-                        "text": columnName["OrderDate"]
-                    }
-                }, {
-                    "name": "ShipDate",
-                    "fieldName": "ship_date",
-                    "width": "120",
-                    "styles": {
-                        datetimeFormat: "yyyy-MM-dd hh:mm",
-                        textAlignment: "center"
-                    },
-                    "header": {
-                        "text": columnName["ShipDate"]
-                    }
-                }];
-				
-                grdMain = DataLudi.createGridView('grdMain', columns, '');
-                grdMain.setDataSource(dsMain);
-                grdMain.checkBar().setVisible(true);
+                me.getGridData(function(data){
+                    new DataLudi.DataLoader(dsMain).load("json", data, {});
 
-                grdMain.header().head().setPopupMenu({
-                    label: 'DataLudi Grid Version',
-                    callback: function() {
-                        alert(DataLudi.getVersion());
-                    }
+                    console.log(data);
+
+                    var columns = [{
+                        "name": "createAt",
+                        "fieldName": "created_at",
+                        "width": "90",
+                        "styles": {}
+                    }, {
+                        "name": "Name",
+                        "fieldName": "name",
+                        "width": "90",
+                        "styles": {}
+                    }];
+                    
+                    grdMain = DataLudi.createGridView('grdMain', columns, '');
+                    grdMain.setDataSource(dsMain);
+                    grdMain.checkBar().setVisible(true);
+                    grdMain.header().head().setPopupMenu({
+                        label: 'DataLudi Grid Version',
+                        callback: function() {
+                            alert(DataLudi.getVersion());
+                        }
+                    });
+
+                    grdMain.onDataCellClicked = function(grid, index) {
+                        // if (index && index.dataColumn() && index.getDataIndex(grid) >= 0) {
+                        //     var v = dsMain.getValue(index.getDataIndex(grid), index.dataField());
+                        //     Ext.Msg.alert('onDataCellClicked', v);
+                        // }
+                        
+                    };
+
+                    grdMain.onColumnHeaderDblClicked = function(grid, column) {
+                        Ext.Msg.alert('onColumnHeaderDblClicked', column.name());
+                    };
                 });
-
-                grdMain.onDataCellClicked = function(grid, index) {
-                    if (index && index.dataColumn() && index.getDataIndex(grid) >= 0) {
-                        var v = dsMain.getValue(index.getDataIndex(grid), index.dataField());
-                        Ext.Msg.alert('onDataCellClicked', v);
-                    }
-                };
-
-                grdMain.onColumnHeaderDblClicked = function(grid, column) {
-                    Ext.Msg.alert('onColumnHeaderDblClicked', column.name());
-                };
 
             }
         };

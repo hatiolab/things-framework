@@ -10,3 +10,4 @@
 //= require_tree ./gantt
 //= require dataludi/dataludi.lic.eval.min
 //= require dataludi/dataludi.eval.min
+//= require jszip/jszip.min
