@@ -10,7 +10,7 @@
 		lock.each([1, 2, 3, 4, 5], function(n, l) {
 			setTimeout(function() {
 				Ext.log(n);
-				l.release();
+				lock.release();
 			}, 1000);
 		});
 

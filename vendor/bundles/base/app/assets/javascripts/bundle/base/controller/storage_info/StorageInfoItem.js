@@ -12,7 +12,8 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 	],
 	
 	mixins : [
-		'Frx.mixin.lifecycle.FormLifeCycle'
+		'Frx.mixin.lifecycle.FormLifeCycle',
+		'Frx.mixin.lifecycle.ListLifeCycle'
 	],
 	
 	models : ['Base.model.StorageInfo'],
@@ -26,22 +27,23 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 		
 		this.control({
 			'base_storage_info_item' : this.EntryPoint(),
-			'base_storage_info_form' : this.FormEventHandler()
+			'base_storage_info_form' : this.FormEventHandler(),
+			'base_storage_info_files' : this.ListEventHandler({
+				'after_load_item' : this.onAfterLoadItemForFiles
+			})
 		});
 	},
 	
-	/****************************************************************
-	 ** 					여기는 customizing area 				   **
-	 ****************************************************************/
-	// Customized code here ...
-	
-	/****************************************************************
-	 ** 					Override 구현 						   **
-	 ****************************************************************/
-
-	
-	/****************************************************************
-	 ** 					abstract method, 필수 구현 				   **
-	****************************************************************/
+	onAfterLoadItemForFiles : function(grid, records, operation) {
+		Ext.Ajax.request({
+			url: 'attachments.json',
+			method: 'GET',
+			scope : this,
+			success: function(response) {
+				var res = Ext.JSON.decode(response.responseText);
+				console.log(res);
+			}
+		});
+	}
 
 });
