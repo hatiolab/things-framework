@@ -27,53 +27,38 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
     gridView : null,
 
 	init : function() {
-		this.callParent(arguments);
-		
+        this.callParent(arguments);
+
 		this.control({
 			'base_storage_info_item' : this.EntryPoint(),
 			'base_storage_info_form' : this.FormEventHandler(),
             'base_storage_info_files': {
                 click_show : this.showDataGrid,
                 click_export: this.gridListExport,
-                click_download: this.downloadFile
+                click_download: this.downloadFile,
+                beforedestroy: this.beforeFileDestroy
             }
 		});
 	},
-	
-	showDataGrid : function() {
-		var columnName = {
-			ProductId: "제품코드",
-			ProductName: "제품명",
-			CustomerId: "고객아이디",
-			CustomerName: "고객명",
-			Country: "국가",
-			Phone: "전화번호",
-			Unit: "단위",
-			Currency: "통화",
-			UnitPrice: "단가",
-			Quantity: "수량",
-			OrderDate: "발주일",
-			ShipDate: "선적일",
-			Sum: "합계"
-		};
 
-        gridView = this.gridManager(columnName);
-        gridView.initGrid();
-	},
-
-	gridListExport: function() {
-        var grid = gridView.getGrid();
-
-        new DataLudi.GridExcelExporter().export(grid, {
-            target: "local",
-            fileName: "dlgrid.xlsx",
-            // rowIndicator: document.getElementById("chkIndicator")&&document.getElementById("chkIndicator").checked ? "default" : "hidden",
-            // header: document.getElementById("chkIndicator")&&document.getElementById("chkHeader").checked ? "default" : "hidden",
-            // footer: document.getElementById("chkIndicator")&&document.getElementById("chkFooter").checked ? "default" : "hidden",
-            numberFormat: "#,##0.00",
-            datetimeFormat: "yyyy.mm.dd"
-        });
+    /**
+     * base_storage_info_files 뷰가 destroy 될 때 gridView도 null 처리 
+     */
+    beforeFileDestroy : function(fileView) {
+        this.gridView = null;
     },
+	
+    /**
+     * 그리드 표시 - 이미 표시되어 있다면 데이터만 새로 로딩 
+     */
+	showDataGrid : function() {
+        if(this.gridView == null) {
+            this.gridView = this.gridManager();
+            this.gridView.initGrid();
+        } else {
+            this.loadGridData(this.gridView.getGrid(), this.gridView.getDataSet());
+        }
+	},
 
 	getGridData : function(callback) {
 		Ext.Ajax.request({
@@ -87,114 +72,130 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
 		});
 	},
 
-    downloadFile : function(fileView) {
-        var form = fileView.down('#downloadForm');
-        var paramFiled = form.down('#formParam');
-        paramFiled.setValue('site_brand.png');
-        form.submit();
+    loadGridData : function(gridMain, dataSet) {
+        this.getGridData(function(data) {
+            new DataLudi.DataLoader(dataSet).load("json", data, {});
+            gridMain.setDataSource(dataSet);
+        });
     },
 
-    setGridData: function(ds) {
-        var data = "product_id,product_name,customer_id,customer_name,country,phone,unit,currency,unit_price,quantity,order_date,ship_date\n";
-        data += "primis,mattis,curabitur,nunc purus,Venezuela,6-(330)118-1978,amet,VEF,738.94,534,2015/05/30,2014-12-01T19:50:22Z\n";
-        data += "sapien,pede,diam,posuere,Iceland,5-(824)596-5295,at,ISK,333.25,853,2015/07/18,2014-09-23T23:09:01Z\n";
-        data += "vivamus,vestibulum ante,cum,etiam justo,Panama,0-(465)962-4766,vulputate,PAB,446.14,407,2015/06/11,2015-03-29T10:20:22Z";
-
-        var jsonData = this.csvJSON(data);
-        return new DataLudi.DataLoader(ds).load("json", jsonData, {});
-    },
-
-    csvJSON : function(csv) {
-        var lines = csv.split("\n");
-        var result = [];
-        var headers = lines[0].split(",");
-
-        for (var i = 1; i < lines.length; i++) {
-            var obj = {};
-            var currentline = lines[i].split(",");
-
-            for (var j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentline[j];
-            }
-
-            result.push(obj);
-        }
-
-        return result;
-    },
-
-	getJsonFields : function (jsonObject) {
-		//TODO : Generate Dataludi Field Object by auto
-	},
-
-    gridManager: function(columnName) {
+    gridManager: function() {
         var me = this;
-        var view;
-        var dsMain;
-        var grdMain;
+        var dataSet = null;
+        var grdMain = null;
+
         return {
             getDataSet: function() {
-                return dsMain;
+                return dataSet;
             },
-            getView: function() {
-                return view;
-            },
+
             getGrid: function() {
                 return grdMain;
             },
-            init: function() {},
+            
             initGrid: function() {
-                var fields = [{
-                        fieldName: "created_at"
+                var fields = [ {
+                        fieldName: "id"
                     }, {
                         fieldName: "name"
-                    }
-                ];
-                dsMain = DataLudi.createGridDataSet();
-                dsMain.setFields(fields);
-
-                me.getGridData(function(data){
-                    new DataLudi.DataLoader(dsMain).load("json", data, {});
-
-                    console.log(data);
-
-                    var columns = [{
-                        "name": "createAt",
-                        "fieldName": "created_at",
-                        "width": "90",
-                        "styles": {}
                     }, {
-                        "name": "Name",
-                        "fieldName": "name",
-                        "width": "90",
-                        "styles": {}
-                    }];
-                    
-                    grdMain = DataLudi.createGridView('grdMain', columns, '');
-                    grdMain.setDataSource(dsMain);
-                    grdMain.checkBar().setVisible(true);
-                    grdMain.header().head().setPopupMenu({
-                        label: 'DataLudi Grid Version',
-                        callback: function() {
-                            alert(DataLudi.getVersion());
-                        }
-                    });
+                        fieldName: "mimetype"                        
+                    }, {
+                        fieldName: "file_size"
+                    }, {
+                        fieldName: "path"
+                    }, {
+                        fieldName: "tag"
+                    }, {
+                        fieldName: "created_at"
+                    } ];
 
-                    grdMain.onDataCellClicked = function(grid, index) {
-                        // if (index && index.dataColumn() && index.getDataIndex(grid) >= 0) {
-                        //     var v = dsMain.getValue(index.getDataIndex(grid), index.dataField());
-                        //     Ext.Msg.alert('onDataCellClicked', v);
-                        // }
-                        
-                    };
+                dataSet = DataLudi.createGridDataSet();
+                dataSet.setFields(fields);
 
-                    grdMain.onColumnHeaderDblClicked = function(grid, column) {
-                        Ext.Msg.alert('onColumnHeaderDblClicked', column.name());
-                    };
+                var columns = [{
+                    "name": "id",
+                    "fieldName": "id",
+                    "width": "35",
+                    "styles": {}
+                }, {
+                    "name": "Name",
+                    "fieldName": "name",
+                    "width": "135",
+                    "styles": {}
+                }, {
+                    "name": "Mime Type",
+                    "fieldName": "mimetype",
+                    "width": "90",
+                    "styles": {}
+                }, {
+                    "name": "File Size",
+                    "fieldName": "file_size",
+                    "width": "80",
+                    "styles": {}
+                }, {
+                    "name": "File Path",
+                    "fieldName": "path",
+                    "width": "250",
+                    "styles": {}
+                }, {
+                    "name": "createAt",
+                    "fieldName": "created_at",
+                    "width": "135",
+                    "styles": {}
+                }];
+                
+                grdMain = DataLudi.createGridView('grdMain', columns, '');
+                grdMain.checkBar().setVisible(true);
+
+                grdMain.header().head().setPopupMenu({
+                    label: 'DataLudi Grid Version',
+                    callback: function() {
+                        HF.msg.alert({ title : 'Version', msg : DataLudi.getVersion() });
+                    }
                 });
 
+                grdMain.onDataCellClicked = function(grid, index) {
+                    // if (index && index.dataColumn() && index.getDataIndex(grid) >= 0) {
+                    //     var v = dataSet.getValue(index.getDataIndex(grid), index.dataField());
+                    //     Ext.Msg.alert('onDataCellClicked', v);
+                    // }
+                };
+
+                grdMain.onColumnHeaderDblClicked = function(grid, column) {
+                    HF.msg.alert({ title : 'onColumnHeaderDblClicked', msg : column.name() });
+                };
+
+                me.loadGridData(grdMain, dataSet);
             }
         };
+    },
+
+    /**
+     * Dataludi Grid Export
+     */
+    gridListExport: function() {
+        var grid = this.gridView.getGrid();
+
+        new DataLudi.GridExcelExporter().export(grid, {
+            target: "local",
+            fileName: "attachments.xlsx",
+            // rowIndicator: document.getElementById("chkIndicator")&&document.getElementById("chkIndicator").checked ? "default" : "hidden",
+            // header: document.getElementById("chkIndicator")&&document.getElementById("chkHeader").checked ? "default" : "hidden",
+            // footer: document.getElementById("chkIndicator")&&document.getElementById("chkFooter").checked ? "default" : "hidden",
+            numberFormat: "#,##0.00",
+            datetimeFormat: "yyyy.mm.dd"
+        });
+    },
+
+    /**
+     * Dataludi Download File
+     */
+    downloadFile : function(fileView) {
+        var form = fileView.down('#downloadForm');
+        var paramFiled = form.down('#formParam');
+        paramFiled.setValue('1');
+        form.submit();
     }
 
 });
