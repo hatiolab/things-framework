@@ -53,10 +53,15 @@ Ext.define('Base.view.setting.Setting', {
 			columns: 2
 		},
 		cls : 'columnField column2',
-		items: [{
+		items: [ {
+			xtype : 'checkbox',
+			fieldLabel : 'Use Remote Server',
+			name : 'setting-use_remote_server'
+		}, {
 			xtype : 'textfield',
-			fieldLabel : 'column1-1'
-		},{
+			fieldLabel : 'Remote Basic URL',
+			name : 'setting-basic_service_url'
+		}/*,{
    			xtype : 'textfield',
    			fieldLabel : 'column1-2'
 	  	},{
@@ -66,7 +71,7 @@ Ext.define('Base.view.setting.Setting', {
 	   	},{
 			xtype : 'textfield',
 			fieldLabel : '혼자 남아도..'
-		}]
+		}*/]
 	} ],
 
 	initComponent : function() {

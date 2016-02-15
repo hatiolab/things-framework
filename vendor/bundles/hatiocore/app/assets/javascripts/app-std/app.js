@@ -7,40 +7,47 @@ Ext.Loader.setConfig({
 	bundleRoot : 'assets/bundle/'
 });
 
-// Ext.require(['App.Framework']);
+Ext.define('App.util.AppBaseUrl', {
 
-Ext.define('App.util.AppBaseUrl',{
     singleton : true,
+
     alternateClassName : 'AppBaseUrl',
-    requires:['Ext.Ajax'],
- 
-    config: {
-        baseUrl:'http://192.168.35.155:9002/rest/'
-    },
+
+    requires : ['Ext.Ajax'],
  
     constructor : function(config) {
-		this.initConfig(config);
 		Ext.Ajax.on('beforerequest', this.onBeforeAjaxRequest, this);
     },
  
+	/**
+	 * Before Ajax Request
+	 */
     onBeforeAjaxRequest : function(connection, options) {
-		if(options && options.method == 'PUT' && options.action == 'update') {
-			this.hookRestUpdate(options);
+		var useRemoteServer = HF.setting.get('setting-use_remote_server');
+		var basicServiceUrl = HF.setting.get('setting-basic_service_url');
 
-		} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
-			this.hookRestSearch(options.params); 
+		if(useRemoteServer && basicServiceUrl != '' && basicServiceUrl.length > 10) {
+			if(options && options.method == 'PUT' && options.action == 'update') {
+				this.hookRestUpdate(options);
 
-		} else if(options && options.scope && options.scope.id && options.scope.id == 'Base.controller.rest.RestItem' && (options.method == 'POST' || options.method == 'PUT')) {
-			this.hookRestPostPut(options);
+			} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
+				this.hookRestSearch(options.params); 
+
+			} else if(options && options.scope && options.scope.id && options.scope.id == 'Base.controller.rest.RestItem' && (options.method == 'POST' || options.method == 'PUT')) {
+				this.hookRestPostPut(options);
+			}
+
+			if(options.url.length > 0 && options.url[0] == '/') {
+				options.url = options.url.substr(1);
+			}
+
+			options.url = basicServiceUrl + options.url;
 		}
-
-		if(options.url.length > 0 && options.url[0] == '/') {
-			options.url = options.url.substr(1);
-		}
-
-		options.url = this.getBaseUrl() + options.url;
     },
 
+	/**
+	 * Post 요청시 hooking
+	 */
 	hookRestPostPut : function(options) {
 		var paramStr = options.params;
 		delete options['params'];
@@ -200,7 +207,9 @@ Ext.require(['App.Framework', 'App.util.AppBaseUrl']);
 Ext.onReady(function() {
 	Ext.application({
 		appFolder: 'assets/app-std',
+	    
 	    autoCreateViewport: true,
+
 	    name: 'App',
 
 		controllers : Ext.Array.merge(['ApplicationController'], App.bundleControllers),
