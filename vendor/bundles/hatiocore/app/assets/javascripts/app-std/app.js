@@ -30,6 +30,9 @@ Ext.define('App.util.AppBaseUrl', {
 			if(options && options.method == 'PUT' && options.action == 'update') {
 				this.hookRestUpdate(options);
 
+			} else if(options && options.method == 'POST' && options.url == 'download') {
+				basicServiceUrl = basicServiceUrl.substr(0, basicServiceUrl.lastIndexOf('rest/'));
+
 			} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
 				this.hookRestSearch(options.params); 
 
