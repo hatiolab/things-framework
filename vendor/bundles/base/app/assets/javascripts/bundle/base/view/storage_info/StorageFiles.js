@@ -16,34 +16,11 @@ Ext.define('Base.view.storage_info.StorageFiles', {
 		itemId: 'grdContainer',
 		id: 'grdMain',
 		flex: 1
-	}, {
-		xtype: 'form',
-		bodyPadding: 5,
-		itemId: 'downloadForm',
-		width: 350,
-		hidden : false,
-
-		// The form will submit an AJAX request to this URL when submitted
-		url: 'download',
-
-		// Fields will be arranged vertically, stretched to full width
-		layout: 'anchor',
-		defaults: {
-			anchor: '100%'
-		},
-
-		// The fields
-		defaultType: 'textfield',
-		items: [{
-			fieldLabel: 'params',
-			itemId : 'formParam',
-			name: 'params'
-		}]
 	}],
 
 	dockedItems: [{
 		xtype: 'controlbar',
-		items: ['->', 'show', 'export','download']
+		items: ['->', 'show', 'export','download','save']
 	}]
 
 });
