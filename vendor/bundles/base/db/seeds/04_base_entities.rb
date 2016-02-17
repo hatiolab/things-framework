@@ -70,8 +70,8 @@ end
 
 Entity.setup Terminology, {:bundle => 'base'} do
   @list_columns = ['category', 'name', 'locale', 'display', 'display_short', 'updater_id', 'updated_at']
-  column :category, :code => 'LOCALE'
-  column :locale, :code => 'TERMS_CATEGORY'
+  column :category, :code => 'TERMS_CATEGORY'
+  column :locale, :code => 'LOCALE'
 end
 
 # Entity.setup Variable, {:bundle => 'base'} do
@@ -109,4 +109,9 @@ end
 
 Entity.setup StorageInfo, {:bundle => 'base'} do
   @list_columns = ['name', 'description', 'path', 'updater_id', 'updated_at']
+end
+
+Entity.setup Message, {:bundle => 'base'} do
+  @list_columns = ['locale', 'name', 'display', 'updater_id', 'updated_at']
+  column :locale, :code => 'LOCALE'
 end

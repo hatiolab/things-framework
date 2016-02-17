@@ -22,6 +22,7 @@ Menu.setup :System, {:rank => 9000} do
   submenu :Attachment, {:rank => 9260, :template => 'Base.view.attachment.Attachment'}
   submenu :Property, {:rank => 9270, :template => 'Base.view.property.Property'}
   submenu :Terminology, {:rank => 9280, :template => 'Base.view.terminology.Terminology'}
+  submenu :Message, {:rank => 9285, :template => 'Base.view.message.Message'}
   #submenu :Variable, {:rank => 9290, :template => 'Base.view.variable.Variable'}
   #submenu :Infographic, {:rank => 9300, :template => 'Base.view.infographic.Infographic'}
   #submenu :Contact, {:rank => 9310, :template => 'Base.view.contact.Contact'}

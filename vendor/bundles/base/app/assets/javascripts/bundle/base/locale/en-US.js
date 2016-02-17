@@ -160,7 +160,8 @@ T({
 		'ExpansionCode' : 'Code Definition',
 		'CodeExpansion' : 'Expansion Code',
 		'StorageInfo' : 'Storage',
-		'Rest' : 'Service API'
+		'Rest' : 'Service API',
+		'Message' : 'Message'
 	},
 	button : {
 		'report' : 'Report',

@@ -39,7 +39,7 @@ Ext.define('Base.controller.entity.EntityItem', {
 				click_locale : this.onLocaleClick,
 				click_create : this.onClickCreateColumns
 			}),
-			'base_entity_prop_list' : this.ListEventHandler({
+			/*'base_entity_prop_list' : this.ListEventHandler({
 				after_load_item : this.onLoadItemForDetail
 			}),
 			'base_entity_logic_list' : this.ListEventHandler({
@@ -50,7 +50,7 @@ Ext.define('Base.controller.entity.EntityItem', {
 			},
 			'base_entity_logic_popup' : this.PopupEventHandler({
 				click_save : this.onPopupSave
-			}),
+			}),*/
 			'base_generation_popup' : this.PopupEventHandler({
 				click_generation : this.onPopupGenerate
 			})

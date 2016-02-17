@@ -162,7 +162,8 @@ T({
 		'ExpansionCode' : '코드 정의',
 		'CodeExpansion' : '확장 코드',
 		'StorageInfo' : '저장소 관리',
-		'Rest' : 'Service API'
+		'Rest' : 'Service API',
+		'Message' : '메시지'
 	},
 	button : {
 		'report' : '리포트',

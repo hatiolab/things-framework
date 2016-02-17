@@ -24,12 +24,18 @@ Ext.define('Base.view.entity.EntityForm', {
 		name: 'description',
 		fieldLabel: T('label.description')
 	}, {
-		xtype : 'entitynamecombo', 
+		name : 'bundle', 
+		fieldLabel : T('label.bundle'), 
+		xtype : 'codecombo', 
+		commonCode : 'BUNDLE',
+		allowBlank : false
+
+		/*xtype : 'entitynamecombo', 
 		allowBlank : false,
 		customSelectionUrl : 'Bundle',
 		name : 'bundle',
-		fieldLabel : T('label.bundle')
-	}, {
+		fieldLabel : T('label.bundle')*/
+	}, /*{
 		xtype : 'entitycombo', 
 		allowBlank: true,
 		storeClass : 'Base.store.Infographic',
@@ -41,7 +47,7 @@ Ext.define('Base.view.entity.EntityForm', {
 		storeClass : 'Base.store.Infographic',
 		name: 'item_infographic',
 		fieldLabel: T('label.item_infographic')
-	}, { 
+	},*/ { 
 		xtype : 'timestamp' 
 	} ],
 

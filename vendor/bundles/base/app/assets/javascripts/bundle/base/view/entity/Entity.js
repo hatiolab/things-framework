@@ -31,8 +31,10 @@ Ext.define('Base.view.entity.Entity', {
 		dataIndex: 'bundle',
 		editor: {
 			allowBlank: false,
-			xtype : 'entitynamecombo', 
-			customSelectionUrl : 'Bundle',
+			xtype : 'codecombo', 
+			commonCode : 'BUNDLE',
+			//xtype : 'entitynamecombo', 
+			//customSelectionUrl : 'Bundle',			
 			editable : false
 		}
 	}, {
@@ -56,11 +58,18 @@ Ext.define('Base.view.entity.Entity', {
 			fieldLabel: T('label.description'),
 			name: 'description-like'
 		}, {
-			xtype : 'entitysearchcombo',
+			fieldLabel : T('label.bundle'), 
+			name : 'bundle-eq', 
+			xtype : 'codesearchcombo', 
+			commonCode : 'BUNDLE',
+			valueField : 'name',
+			displayField : 'name'
+
+			/*xtype : 'entitysearchcombo',
 			fieldLabel : T('label.bundle'),
 			name : 'bundle-eq',
 			customSelectionUrl : 'Bundle',
-			valueField : 'name'
+			valueField : 'name'*/
 		} ]
 	}, {
 		xtype: 'controlbar',

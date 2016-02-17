@@ -22,9 +22,9 @@ Ext.define('Base.view.entity.EntityItem', {
 		xtype : 'base_entity_form'
 	}, {
 		xtype : 'base_entity_column_list'
-	}, {
+	}/*, {
 		xtype : 'base_entity_prop_list'
 	}, {
 		xtype : 'base_entity_logic_list'
-	} ]
+	}*/ ]
 });
