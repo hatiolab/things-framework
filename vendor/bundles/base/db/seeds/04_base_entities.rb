@@ -48,15 +48,15 @@ Entity.setup DiyService, {:bundle => 'base'} do
   column :script_type, :code => 'SCRIPT_TYPE'
 end
 
-Entity.setup DiySelection, {:bundle => 'base'} do
-  @list_columns = ['name', 'description', 'script_type', 'updater_id', 'updated_at']
-  column :script_type, :code => 'SCRIPT_TYPE'
-end
+# Entity.setup DiySelection, {:bundle => 'base'} do
+#   @list_columns = ['name', 'description', 'script_type', 'updater_id', 'updated_at']
+#   column :script_type, :code => 'SCRIPT_TYPE'
+# end
 
-Entity.setup DiyReport, {:bundle => 'base'} do
-  @list_columns = ['name', 'description', 'diy_selection_id', 'updater_id', 'updated_at']
-  column :diy_selection_id, :resource => 'DiySelection'
-end
+# Entity.setup DiyReport, {:bundle => 'base'} do
+#   @list_columns = ['name', 'description', 'diy_selection_id', 'updater_id', 'updated_at']
+#   column :diy_selection_id, :resource => 'DiySelection'
+# end
 
 Entity.setup Attachment, {:bundle => 'base'} do
   @list_columns = ['name', 'description', 'on_type', 'on_id', 'tag', 'path', 'updater_id', 'updated_at']
@@ -74,20 +74,20 @@ Entity.setup Terminology, {:bundle => 'base'} do
   column :locale, :code => 'TERMS_CATEGORY'
 end
 
-Entity.setup Variable, {:bundle => 'base'} do
-  @list_columns = ['name', 'description', 'category', 'updater_id', 'updated_at']
-  column :category, :code => 'VARIABLE_CATEGORY'
-end
+# Entity.setup Variable, {:bundle => 'base'} do
+#   @list_columns = ['name', 'description', 'category', 'updater_id', 'updated_at']
+#   column :category, :code => 'VARIABLE_CATEGORY'
+# end
 
-Entity.setup Infographic, {:bundle => 'base'} do
-  @list_columns = ['name', 'description', 'infographic_type', 'printer_type', 'updater_id', 'updated_at']
-  column :infographic_type, :code => 'INFOGRAPHIC_TYPE'
-  column :printer_type, :code => 'PRINTER_TYPE'
-end
+# Entity.setup Infographic, {:bundle => 'base'} do
+#   @list_columns = ['name', 'description', 'infographic_type', 'printer_type', 'updater_id', 'updated_at']
+#   column :infographic_type, :code => 'INFOGRAPHIC_TYPE'
+#   column :printer_type, :code => 'PRINTER_TYPE'
+# end
 
-Entity.setup Contact, {:bundle => 'base'} do
-  @list_columns = ['name', 'family_name', 'given_name', 'company', 'department', 'title', 'phone_office', 'phone_mobile', 'email']
-end
+# Entity.setup Contact, {:bundle => 'base'} do
+#   @list_columns = ['name', 'family_name', 'given_name', 'company', 'department', 'title', 'phone_office', 'phone_mobile', 'email']
+# end
 
 Entity.setup Report, {:bundle => 'base'} do
   @list_columns = ['name', 'template', 'updater_id', 'updated_at']
@@ -105,4 +105,8 @@ end
 Entity.setup Chit, {:bundle => 'base'} do
   @list_columns = ['entity_id', 'name', 'description', 'updater_id', 'updated_at']
   column :entity_id, :resource => 'POLYMORPHIC'
+end
+
+Entity.setup StorageInfo, {:bundle => 'base'} do
+  @list_columns = ['name', 'description', 'path', 'updater_id', 'updated_at']
 end

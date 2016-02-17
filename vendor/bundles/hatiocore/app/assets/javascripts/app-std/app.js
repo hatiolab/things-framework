@@ -23,30 +23,39 @@ Ext.define('App.util.AppBaseUrl', {
 	 * Before Ajax Request
 	 */
     onBeforeAjaxRequest : function(connection, options) {
-		var useRemoteServer = HF.setting.get('setting-use_remote_server');
-		var basicServiceUrl = HF.setting.get('setting-basic_service_url');
+		var basicServiceUrl = this.getBasicRestServiceUrl();
 
-		if(useRemoteServer && basicServiceUrl != '' && basicServiceUrl.length > 10) {
-			if(options && options.method == 'PUT' && options.action == 'update') {
-				this.hookRestUpdate(options);
+		if(options && options.method == 'PUT' && options.action == 'update') {
+			this.hookRestUpdate(options);
 
-			} else if(options && options.method == 'POST' && options.url == 'download') {
-				basicServiceUrl = basicServiceUrl.substr(0, basicServiceUrl.lastIndexOf('rest/'));
+		//} else if(options && options.method == 'GET' && options.url == 'download') {
+		//	basicServiceUrl = basicServiceUrl.substr(0, basicServiceUrl.lastIndexOf('rest/'));
 
-			} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
-				this.hookRestSearch(options.params); 
+		} else if(options && options.method == 'GET' && options.action == 'read' && options.params && !options.params.id) {
+			this.hookRestSearch(options.params); 
 
-			} else if(options && options.scope && options.scope.id && options.scope.id == 'Base.controller.rest.RestItem' && (options.method == 'POST' || options.method == 'PUT')) {
-				this.hookRestPostPut(options);
-			}
-
-			if(options.url.length > 0 && options.url[0] == '/') {
-				options.url = options.url.substr(1);
-			}
-
-			options.url = basicServiceUrl + options.url;
+		} else if(options && options.scope && options.scope.id && options.scope.id == 'Base.controller.rest.RestItem' && (options.method == 'POST' || options.method == 'PUT')) {
+			this.hookRestPostPut(options);
 		}
+
+		if(options.url.length > 0 && options.url[0] == '/') {
+			options.url = options.url.substr(1);
+		}
+
+		options.url = basicServiceUrl + options.url;
     },
+
+	getBasicRestServiceUrl : function() {
+		var useRemoteServer = HF.setting.get('setting-use_remote_server');
+
+		if(useRemoteServer) {
+			var restServiceHost = HF.setting.get('setting-rest_service_host');
+			var basicServiceUrl = HF.setting.get('setting-basic_service_url');
+			return restServiceHost + basicServiceUrl; 
+		} else {
+			return '';
+		}
+	},
 
 	/**
 	 * Post 요청시 hooking

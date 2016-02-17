@@ -56,22 +56,25 @@ Ext.define('Base.view.setting.Setting', {
 		items: [ {
 			xtype : 'checkbox',
 			fieldLabel : 'Use Remote Server',
-			name : 'setting-use_remote_server'
+			name : 'setting-use_remote_server',
+			colspan: 2
 		}, {
 			xtype : 'textfield',
-			fieldLabel : 'Remote Basic URL',
+			fieldLabel : 'Service Host',
+			name : 'setting-rest_service_host'
+		}, {
+			xtype : 'textfield',
+			fieldLabel : 'Basic Path',
 			name : 'setting-basic_service_url'
-		}/*,{
+		}, {
    			xtype : 'textfield',
-   			fieldLabel : 'column1-2'
-	  	},{
-			xtype : 'textfield',
-			fieldLabel : '셀을 합해도..',
-			colspan : 2
-	   	},{
-			xtype : 'textfield',
-			fieldLabel : '혼자 남아도..'
-		}*/]
+   			fieldLabel : 'Export Path',
+   			name : 'setting-rest_export_path'
+	  	}, {
+   			xtype : 'textfield',
+   			fieldLabel : 'Import Path',
+   			name : 'setting-rest_import_path'
+	   	} ]
 	} ],
 
 	initComponent : function() {

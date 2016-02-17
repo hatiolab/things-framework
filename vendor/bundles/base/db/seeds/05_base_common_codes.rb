@@ -5,6 +5,12 @@ Dir[File.join(File.dirname(__FILE__), 'codes', '*.rb')].sort.each do |seed|
   load seed
 end
 
+CommonCode.setup :BUNDLE, {:description => 'All Bundles'} do
+  code 'core' => 'Core'
+  code 'base' => 'Base'
+  code 'sample' => 'Sample'
+end
+
 CommonCode.setup :LOCALE, {:description => 'Locale code'} do
   code 'en-US' => 'English'
   code 'ko-KR' => '한글'
@@ -78,4 +84,16 @@ CommonCode.setup :PRINTER_TYPE, {:description => 'Printer Type'} do
   code :zebra => 'zebra'
   code :datamax => 'datamax'
   code :printronix => 'printronix'
+end
+
+CommonCode.setup :LABEL_STATUS, {:description => 'Label Status'} do
+  code :NEW => 'New'
+  code :RELEASE => 'Released'
+  code :EDIT => 'Editing'
+end
+
+CommonCode.setup :SCRIPT_ENGINE, {:description => 'Script Engine'} do
+  code :JavaScript => 'JavaScript'
+  code :groovy => 'Groovy'
+  code :ruby => 'Ruby'
 end

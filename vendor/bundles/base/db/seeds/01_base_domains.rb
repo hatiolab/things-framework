@@ -5,7 +5,7 @@ subdomain = domain_name.downcase
 
 Domain.current_domain = Domain.where(name: domain_name).first_or_create(
   system_flag: true,
-  timezone: 'Beijing',
+  timezone: 'Seoul',
   subdomain: subdomain,
   brand_name: 'Things System',
   brand_image: File.open(Base::Engine.root.join('app', 'assets', 'images', 'site_brand.png')),

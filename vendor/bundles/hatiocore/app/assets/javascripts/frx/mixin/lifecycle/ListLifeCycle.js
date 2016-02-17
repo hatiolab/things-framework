@@ -316,21 +316,41 @@ Ext.define('Frx.mixin.lifecycle.ListLifeCycle', {
 	 * export list url을 리턴 
 	 */
 	getExportListUrl : function(grid) {
-		
-		var names = Ext.getClassName(this).split('.');
-		var underscored = HF.underscored(names[names.length - 1]);
-		
-		return Ext.util.Inflector.pluralize(underscored) + '/export.xlsx';
+		var baseExportUrl = this.getBaseExportUrl();
+		var exportPath = HF.setting.get('setting-rest_export_path');
+		exportPath = exportPath || '/export.xlsx';
+		return baseExportUrl + this.getPluralizedClassName() + exportPath;
 	},
 	
 	/**
 	 * import list url을 리턴 
 	 */
 	getImportListUrl : function(grid) {
-		
+		var baseUrl = this.getPluralizedClassName();		
+		return baseUrl + '/import.json';
+	},
+
+	/**
+	 * Class에 대한 복수형 & Underscored 명 
+	 */
+	getPluralizedClassName : function() {
 		var names = Ext.getClassName(this).split('.');
 		var underscored = HF.underscored(names[names.length - 1]);
-		
-		return Ext.util.Inflector.pluralize(underscored) + '/import.json';
+		return Ext.util.Inflector.pluralize(underscored);
+	},
+
+	/**
+	 * Base Export Path
+	 */
+	getBaseExportUrl : function() {
+		var useRemoteServer = HF.setting.get('setting-use_remote_server');
+
+		if(useRemoteServer) {
+			var restServiceHost = HF.setting.get('setting-rest_service_host');
+			var basicServiceUrl = HF.setting.get('setting-basic_service_url');
+			return restServiceHost + basicServiceUrl; 
+		} else {
+			return '';
+		}
 	}
 });

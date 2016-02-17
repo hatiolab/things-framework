@@ -26,6 +26,13 @@ Ext.define('Base.view.report.Report', {
 			xtype: 'textfield'
 		}
 	}, {
+		header: T('label.description'),
+		dataIndex: 'description',
+		flex : 1,
+		editor: {
+			xtype: 'textfield'
+		}		
+	}, {
 		header: T('label.template'),
 		dataIndex: 'template_url',
 		flex : 1

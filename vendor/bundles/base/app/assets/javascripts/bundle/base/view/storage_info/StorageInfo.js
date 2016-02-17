@@ -11,8 +11,8 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 	columns : [
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
 		{ header : T('label.name'), dataIndex : 'name' , editor : { xtype : 'textfield' , maxLength : 62 } },
-		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 } },
-		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 } },
+		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
+		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ 
 			header : T('label.updater'), 
 			dataIndex : 'updater', 
@@ -20,7 +20,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 		},
 		{ 
 			header : T('label.updated_at'), 
-			width : 130, 
+			width : 135, 
 			dataIndex : 'updated_at', 
 			xtype : 'datecolumn', 
 			format : T('format.datetime') 
