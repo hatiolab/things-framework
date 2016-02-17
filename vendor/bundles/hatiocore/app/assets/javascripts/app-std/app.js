@@ -47,9 +47,9 @@ Ext.define('App.util.AppBaseUrl', {
 
 	getBasicRestServiceUrl : function() {
 		var useRemoteServer = HF.setting.get('setting-use_remote_server');
-
-		if(useRemoteServer) {
-			var restServiceHost = HF.setting.get('setting-rest_service_host');
+		var restServiceHost = HF.setting.get('setting-rest_service_host');
+		
+		if(useRemoteServer && restServiceHost) {	
 			var basicServiceUrl = HF.setting.get('setting-basic_service_url');
 			return restServiceHost + basicServiceUrl; 
 		} else {
