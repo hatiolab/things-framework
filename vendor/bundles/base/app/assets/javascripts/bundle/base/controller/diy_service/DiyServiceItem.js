@@ -78,7 +78,12 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 	 */	
 	getUpdateListUrl : function(grid) {
 		var parameterType = this.getParameterType(grid);
-		return 'diy_services/' + grid._record.get('id') + '/update_multiple_parameters.json?type=' + parameterType;
+
+		if(HF.setting.get('setting-use_remote_server')) {
+			return 'diy_services/' + grid._record.get('id') + '/update_multiple_parameters/' + parameterType + '.json';
+		} else {
+			return 'diy_services/' + grid._record.get('id') + '/update_multiple_parameters.json?type=' + parameterType;
+		}
 	},
 	
 	onAfterLoadItemElse : function(view, record) {
@@ -107,5 +112,20 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 			resource_id : grid._record.get('id'),
 			rank : (grid.store.getCount() + 1) * 10
 		};
+	},
+
+	/**
+	 * override
+	 */	
+	onAfterUpdateList : function(grid, updateType, response) {
+		if(grid.xtype == 'base_diy_service_in_params_list' || grid.xtype == 'base_diy_service_out_params_list') {
+	        var parameters = Ext.JSON.decode(response.responseText);
+			grid.store.loadRawData(parameters);
+			var successMsg = (updateType == 'd') ? T('text.Success to Delete') : T('text.Success to Update');
+			HF.msg.notice(successMsg);
+		} else {
+			this.callParent(arguments);
+		}
 	}
+	
 });

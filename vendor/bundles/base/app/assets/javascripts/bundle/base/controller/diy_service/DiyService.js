@@ -26,6 +26,17 @@ Ext.define('Base.controller.diy_service.DiyService', {
 				click : this.onGotoItem
 			}
 		});
-	}
+	},
+
+	/**
+	 * override
+	 */
+	validateMultipleUpdateData : function(data) {		
+		Ext.Array.each(['service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+			delete data[key];
+		});
+		
+		return data;
+	}	
 
 });
