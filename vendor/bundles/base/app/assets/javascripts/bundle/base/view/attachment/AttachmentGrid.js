@@ -59,7 +59,7 @@ Ext.define('Base.view.attachment.AttachmentGrid', {
 		{ xtype: 'numbercolumn', header : T('label.file_size'), dataIndex : 'file_size', format : '0,000', align : 'right' },
 		{ header : T('label.mimetype'), dataIndex : 'mimetype' },
 		{ header : T('label.creator'), dataIndex : 'creator', xtype : 'entitycolumn' },
-		{ header : T('label.created_at'), width : 120, dataIndex : 'created_at', xtype : 'datecolumn', readOnly : true, format : T('format.datetime') }
+		{ header : T('label.created_at'), width : 135, dataIndex : 'created_at', xtype : 'datecolumn', readOnly : true, format : T('format.datetime') }
 	],
 	
 	viewConfig: {
@@ -71,6 +71,10 @@ Ext.define('Base.view.attachment.AttachmentGrid', {
 	
 	            if (linkClicked && clickedDataIndex == 'name') {
 					var url = 'attachments/' + record.get('id') + '/download.json';
+					if(HF.setting.get('setting-use_remote_server')) {
+						url = HF.setting.get('setting-rest_service_host') + HF.setting.get('setting-basic_service_url') + url;
+					}
+					
 					HF.download(url);
 	            }
 	        }
@@ -87,20 +91,36 @@ Ext.define('Base.view.attachment.AttachmentGrid', {
 		}
 		this.getStore().proxy.setExtraParam('_q[' + name + '-eq]', value);
 	},
+
+	getInputValue : function(name) {
+		if(this.upload) {
+			return this.upload.find('input[name=attachment\\[' + name + '\\]]').val();
+		} else {
+			return this.uploadParams[name];
+		}
+	},
 	
 	initComponent: function() {
 		this.selModel = Ext.create('Ext.selection.CheckboxModel', { pruneRemoved : false, mode: 'MULTI' });
 		this.store = Ext.create('Base.store.Attachment');
-
 		this.callParent();
+		var me = this;
 		
 		this.on('afterrender', function() {
+			var storage = me.getInputValue('on_type');
+			var useRemoteServer = HF.setting.get('setting-use_remote_server');
+			var uploadUrl = 'attachments';
+			if(useRemoteServer) {
+				var uploadUrl = HF.setting.get('setting-rest_service_host') + HF.setting.get('setting-basic_service_url') + HF.setting.get('setting-attach_upload_path') + storage;
+			}
+
 			//TODO Error 처리, 이름 중복등 오류시 500 에러가 발생함. - 어디서 캐치하나????
 			var grid = this;
 			this.upload = $(this.down('#upload').getEl().dom);
 		
 			this.upload.fileupload({
-				url : 'attachments',
+				//url : 'attachments',
+				url : uploadUrl,
 				dataType : 'json',
 				add : function(e, data) {
 					var store = grid.getStore();
@@ -120,7 +140,6 @@ Ext.define('Base.view.attachment.AttachmentGrid', {
 					});
 				
 					data.context = model[0];
-				
 					data.submit();
 				},
 				progress : function(e, data) {

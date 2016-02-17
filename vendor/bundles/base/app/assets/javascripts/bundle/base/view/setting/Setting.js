@@ -67,14 +67,22 @@ Ext.define('Base.view.setting.Setting', {
 			fieldLabel : 'Basic Path',
 			name : 'setting-basic_service_url'
 		}, {
-   			xtype : 'textfield',
-   			fieldLabel : 'Export Path',
-   			name : 'setting-rest_export_path'
-	  	}, {
-   			xtype : 'textfield',
-   			fieldLabel : 'Import Path',
-   			name : 'setting-rest_import_path'
-	   	} ]
+			xtype : 'textfield',
+			fieldLabel : 'Export Path',
+			name : 'setting-rest_export_path'
+		}, {
+			xtype : 'textfield',
+			fieldLabel : 'Import Path',
+			name : 'setting-rest_import_path'
+		}, {
+			xtype : 'textfield',
+			fieldLabel : 'Attachment Upload Path',
+			name : 'setting-attach_upload_path'
+		}/*, {
+			xtype : 'textfield',
+			fieldLabel : 'Attachment Download Path',
+			name : 'setting-attach_download_path'
+		}*/ ]
 	} ],
 
 	initComponent : function() {

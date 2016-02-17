@@ -35,7 +35,7 @@ Ext.define('Base.view.attachment.AttachmentForm', {
 		var grid = this.down('base_attachment_grid');
 		grid.setInputValue('on_type', HF.classify(HF.current.resource().type));
 		grid.setInputValue('on_id', record.get('id'));
-		grid.setInputValue('tag', this.tag || 'attachment');
+		//grid.setInputValue('tag', this.tag || 'attachment');
 
 		grid.store.load();
 	}

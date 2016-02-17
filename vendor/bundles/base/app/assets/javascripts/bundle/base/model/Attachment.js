@@ -7,7 +7,7 @@ Ext.define('Base.model.Attachment', {
 		{ name : 'name', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'path', type : 'auto', convert : function(value, record) {
-            return value && value.path ? value.path.url : '';
+            return (value && value.path) ? value.path.url : value;
         } },
 		{ name : 'file_size', type : 'integer' },
 		{ name : 'mimetype', type : 'string' },

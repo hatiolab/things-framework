@@ -356,7 +356,8 @@ Ext.define('App.controller.ApplicationController', {
 		if(!prohibitAutoStartFirstMenu) {
 			Ext.Array.each(subMenus, function(menu) {
 				if(menu.menu_type !== 'SEPARATOR') {
-					HF.show(menu.template, {id : menu.id});
+					//HF.show(menu.template, {id : menu.id});
+					HF.show(menu.template, {});
 					return false;
 				}
 				return true;
@@ -448,7 +449,9 @@ Ext.define('App.controller.ApplicationController', {
 	},
 
 	onMenuItemClick : function(view, record, item, index, e, opt) {
-		if(record.get('menu_type') !== 'SEPARATOR')
-			HF.show(record.get('template'), {id : record.get('id')});
+		if(record.get('menu_type') !== 'SEPARATOR') {
+			//HF.show(record.get('template'), {id : record.get('id')});
+			HF.show(record.get('template'), {});
+		}
 	}
 });

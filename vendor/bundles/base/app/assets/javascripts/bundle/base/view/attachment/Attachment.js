@@ -18,7 +18,7 @@ Ext.define('Base.view.attachment.Attachment', {
 		{ header : T('label.on_type'), width : 120, dataIndex : 'on_type' },
 		{ header : T('label.on_id'), width : 100, dataIndex : 'on_id' },
 		{ header : T('label.tag'), width : 100, dataIndex : 'tag' },
-		{ header : T('label.url'), width : 300, dataIndex : 'url' },
+		{ header : T('label.url'), width : 300, dataIndex : 'path' },
 		{ header : T('label.updater'), dataIndex : 'updater', xtype : 'entitycolumn' },
 		{ header : T('label.updated_at'), width : 130, dataIndex : 'updated_at', xtype : 'datecolumn', readOnly : true, format : T('format.datetime') }
 	],
