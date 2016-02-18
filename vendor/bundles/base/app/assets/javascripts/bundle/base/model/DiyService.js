@@ -7,6 +7,7 @@ Ext.define('Base.model.DiyService', {
 		{ name : 'name', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'script_type', type : 'string' },
+		{ name : 'lang_type', type : 'string' },
 		{ name : 'active_flag', type : 'bool' },
 		{ name : 'service_logic', type : 'text' },
 		{ name : 'atomic_flag', type : 'boolean' },

@@ -15,6 +15,13 @@ Ext.define('Base.view.diy_service.DiyServiceForm', {
 		{ name : 'name', fieldLabel : T('label.name'), readOnly : true },
 		{ name : 'description', fieldLabel : T('label.description') },
 		{ 
+			name : 'lang_type', 
+			fieldLabel : T('label.lang_type'), 
+			xtype : 'codecombo', 
+			commonCode : 'SCRIPT_ENGINE',
+			allowBlank : false
+		},		
+		{ 
 			name : 'script_type', 
 			fieldLabel : T('label.script_type'), 
 			xtype : 'codecombo', 

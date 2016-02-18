@@ -102,7 +102,12 @@ T({
 		'level' : '레벨',
 		'movie' : '동영상',
 		'parameter' : '파라미터',
-		'stack_trace' : 'Stack Trace'
+		'stack_trace' : 'Stack Trace',
+		'unique' : '고유',
+		'path' : '경로',
+		'service_class' : 'Service Class',
+		'file' : '파일',
+		'lang_type' : 'Language'		
 	},
 	title : {
 		'item' : '아이템',
@@ -130,11 +135,7 @@ T({
 		'modeler' : '모델러',
 		'change_password' : '패스워드 변경',
 		'preview' : '미리보기',
-		'add_common_code' : '공통 코드 추가',
-		'unique' : '고유',
-		'path' : '경로',
-		'service_class' : 'Service Class',
-		'file' : '파일'		
+		'add_common_code' : '공통 코드 추가'		
 	},
 	menu : {
 		'Domain' : '도메인',

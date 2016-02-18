@@ -1,4 +1,4 @@
-json.(@diy_service, :id, :name, :description, :script_type, :active_flag, :service_logic, :atomic_flag)
+json.(@diy_service, :id, :name, :description, :lang_type, :script_type, :active_flag, :service_logic, :atomic_flag)
 
 json.updated_at @diy_service.updated_at
 json.updater @diy_service.updater, :id, :name if @diy_service.updater

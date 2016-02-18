@@ -10,9 +10,10 @@ Ext.define('Base.view.diy_service.DiyService', {
 	
 	columns : [
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
-		{ header : T('label.name'), dataIndex : 'name', width : 170, editor : { xtype : 'textfield', allowBlank : false } },
+		{ header : T('label.name'), dataIndex : 'name', width : 150, editor : { xtype : 'textfield', allowBlank : false } },
 		{ header : T('label.description'), dataIndex : 'description', flex : 1, editor : { xtype : 'textfield' } },
-		{ header : T('label.script_type'), dataIndex : 'script_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_TYPE', allowBlank : false }, width : 90 },
+		{ header : T('label.lang_type'), dataIndex : 'lang_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_ENGINE', allowBlank : false }, width : 85 },
+		{ header : T('label.script_type'), dataIndex : 'script_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_TYPE', allowBlank : false }, width : 85 },
 		{ header : T('label.active_flag'), dataIndex : 'active_flag', xtype : 'checkcolumn', width : 60 },
 		{ header : T('label.atomic_flag'), dataIndex : 'atomic_flag', xtype : 'checkcolumn', width : 60 },
 		{ header : T('label.updater'), dataIndex : 'updater', xtype : 'entitycolumn' },
@@ -25,6 +26,14 @@ Ext.define('Base.view.diy_service.DiyService', {
 			{ fieldLabel : T('label.name'), name : 'name-like' },
 			{ fieldLabel : T('label.description'), name : 'description-like' },
 			{ 
+				fieldLabel : T('label.lang_type'), 
+				name : 'lang_type-eq', 
+				xtype : 'codesearchcombo', 
+				commonCode : 'SCRIPT_ENGINE',
+				valueField : 'name',
+				displayField : 'name'
+			},			
+			{ 
 				fieldLabel : T('label.script_type'), 
 				name : 'script_type-eq', 
 				xtype : 'codesearchcombo', 
@@ -32,7 +41,6 @@ Ext.define('Base.view.diy_service.DiyService', {
 				valueField : 'name',
 				displayField : 'name'
 			},
-			'-',
 			{ 
 				fieldLabel : T('label.active_flag'), 
 				name : 'active_flag-eq', 

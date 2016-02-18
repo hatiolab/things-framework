@@ -106,7 +106,8 @@ T({
 		'unique' : 'Unique',
 		'path' : 'Path',
 		'service_class' : 'Service Class',
-		'file' : 'File'
+		'file' : 'File',
+		'lang_type' : 'Language'
 	},
 	title : {
 		'item' : 'Item',

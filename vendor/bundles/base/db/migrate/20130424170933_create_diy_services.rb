@@ -5,6 +5,7 @@ class CreateDiyServices < ActiveRecord::Migration
 			t.string :name, :null => false, :limit => 64
 			t.string :description, :limit => 255
 			t.string :script_type, :limit => 10
+      t.string :lang_type, :limit => 15
 			t.boolean :active_flag
 			t.text :service_logic
 			t.boolean :atomic_flag
