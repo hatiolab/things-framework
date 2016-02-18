@@ -43,16 +43,19 @@ Ext.define('Base.view.diy_service.DiyServiceTest', {
 		
 		var inParams = record.get('service_in_params');
 		var paramsFieldSet = paramsView.child('#parameters');
+		
 		paramsFieldSet.add({
 			xtype : 'textfield', 
 			fieldLabel : 'Invoke URL', 
 			value : url, 
-			disabled : true }
-		);
+			disabled : true 
+		});
+
 		Ext.Array.each(inParams, function(inParam) {
 			paramsFieldSet.add({
 				xtype : 'textfield', 
-				name : 'input[' + inParam.name + ']', 
+				//name : 'input[' + inParam.name + ']', 
+				name : inParam.name,
 				fieldLabel : inParam.name 
 			});
 		});

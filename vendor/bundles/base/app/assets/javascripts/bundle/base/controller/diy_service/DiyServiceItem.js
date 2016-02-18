@@ -53,11 +53,13 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 	 */
 	onInvokeClick : function(testView) {
 		var testParamsForm = testView.child('form');
-		var testParams = testParamsForm.getValues(true);
+		var testParams = testParamsForm.getForm().getValues();
+		var invokeParams = { 'input' : testParams };
+
     	Ext.Ajax.request({
 		    url : 'diy_services/' + testView._record.get('name') + '/shoot.json?test=y',
 		    method : 'POST',
-		    params : testParams,
+		    jsonData : invokeParams,
 		    success : function(response) {
 		        var res = Ext.JSON.decode(response.responseText);
 				testView.showResult(testView._record.get('service_out_params'), res);
