@@ -128,6 +128,30 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 		} else {
 			this.callParent(arguments);
 		}
+	},
+
+	/**
+	 * get Item Data modified on the view
+	 * 
+	 * @view
+	 */
+	getItemRecord : function(view) {
+		if(view instanceof Ext.form.Panel) {
+			var form = view.getForm();
+			var values = form.getValues();
+			var entity = form.getRecord();
+
+			Ext.Array.each(['service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+				delete entity.data[key];
+				delete values[key];
+			});
+
+			if(entity) {
+				entity.data = Ext.merge(entity.data, values);
+			}
+
+			return entity;
+		}
 	}
 	
 });
