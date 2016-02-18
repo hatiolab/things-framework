@@ -14,8 +14,8 @@ Ext.define('Base.view.diy_template.DiyTemplateForm', {
 		{ name : 'id', fieldLabel : T('label.id'), hidden : true },
 		{ name : 'name', fieldLabel : T('label.name'), allowBlank : false, maxLength : 64 },
 		{ name : 'description', fieldLabel : T('label.description'), maxLength : 255 },
-		{ name : 'template', fieldLabel : T('label.template'), xtype : 'textareafield' },
-		{ name : 'logic', fieldLabel : T('label.logic'), xtype : 'textareafield' },
+		//{ name : 'template', fieldLabel : T('label.template'), xtype : 'textareafield', rows : 12 },
+		{ name : 'logic', fieldLabel : T('label.logic'), xtype : 'textareafield', rows : 20 },
 		{ xtype : 'timestamp' }
 	],
 	
