@@ -3,7 +3,7 @@ Ext.define('Base.view.diy_template.DiyTemplateEditor', {
 
 	xtype : 'base_diy_template_editor',
 	
-	title : T('label.editor'),
+	title : T('label.template'),
 	
 	layout : {
 		type : 'vbox',
@@ -16,7 +16,7 @@ Ext.define('Base.view.diy_template.DiyTemplateEditor', {
 		xtype : 'component',
 		itemId : 'editor',
 		flex : 1,
-		tpl : '<div>{logic}</div>'
+		tpl : '<div>{template}</div>'
 	}, {
 		xtype : 'hidden',
 		name : 'id'
@@ -38,7 +38,7 @@ Ext.define('Base.view.diy_template.DiyTemplateEditor', {
 		this.down('component#editor').on('afterrender', function(comp) {
 			var id = comp.getEl().id;
 		    comp.editor = ace.edit(id);
-		    comp.editor.setTheme("ace/theme/textmate");
+		    comp.editor.setTheme("ace/theme/xcode");
 		    comp.editor.getSession().setMode("ace/mode/html");
 			comp.editor.getSession().on('change', function(e) {
 				self.down('hidden[name=template]').setValue(comp.editor.getValue());

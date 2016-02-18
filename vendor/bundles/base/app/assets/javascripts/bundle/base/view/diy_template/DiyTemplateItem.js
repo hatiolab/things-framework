@@ -15,6 +15,6 @@ Ext.define('Base.view.diy_template.DiyTemplateItem', {
 	
 	items : [ 
 		{ xtype : 'base_diy_template_form' },
-		{ xtype : 'base_diy_template_editor'}
+		{ xtype : 'base_diy_template_editor' }
 	]
 });

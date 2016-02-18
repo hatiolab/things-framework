@@ -10,8 +10,8 @@ Ext.define('Base.view.diy_template.DiyTemplate', {
 	
 	columns : [
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
-		{ header : T('label.name'), dataIndex : 'name' , editor : { xtype : 'textfield' , maxLength : 64 } },
-		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 } },
+		{ header : T('label.name'), dataIndex : 'name' , editor : { xtype : 'textfield' , maxLength : 64 }, width : 200 },
+		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ header : T('label.updater'), dataIndex : 'updater', xtype : 'entitycolumn' },
 		{ header : T('label.updated_at'), dataIndex : 'updated_at', xtype : 'datecolumn', format : T('format.datetime'), width : 120 },
 	],	
