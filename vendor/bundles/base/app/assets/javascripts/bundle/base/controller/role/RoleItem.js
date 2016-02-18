@@ -194,10 +194,18 @@ Ext.define('Base.controller.role.RoleItem', {
 	 * Update Role Users
 	 */
 	updateRoleUsers : function(view, cudType, records) {
+		var selectedUsers = [];
+
+		Ext.Array.each(records, function(record) {
+			selectedUsers.push({id : record.id});
+
+		});
+
 		Ext.Ajax.request({
 			url : 'roles/' + this.getRoleId() + '/update_users.json',
 			method : 'POST',
-			params : { 'role' : Ext.JSON.encode(records) },
+			//params : { 'role' : Ext.JSON.encode(records) },
+			jsonData : selectedUsers,
 			success : function(response) {
 				this.loadRoleUsers(view);
 			},
