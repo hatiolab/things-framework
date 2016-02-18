@@ -1,3 +1,4 @@
+# This migration comes from base_engine (originally 20160217070409)
 class CreateMessages < ActiveRecord::Migration
 
 	def change

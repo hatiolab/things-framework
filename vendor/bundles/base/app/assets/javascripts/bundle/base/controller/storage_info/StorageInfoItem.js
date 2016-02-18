@@ -107,8 +107,6 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
             data.push(object);
         }
         this.updateStorageinfo(data);
-
-
     },
     /**
      * 그리드 표시 - 이미 표시되어 있다면 데이터만 새로 로딩 
