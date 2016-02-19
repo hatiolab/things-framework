@@ -27,6 +27,6 @@ Ext.define('Base.view.chit.Chit', {
 		]
 	}, {
 		xtype : 'controlbar',
-		items : ['->', 'import', 'export', 'add', 'save', 'delete']
+		items : ['->', 'invoke', 'import', 'export', 'add', 'save', 'delete']
 	} ]
 });

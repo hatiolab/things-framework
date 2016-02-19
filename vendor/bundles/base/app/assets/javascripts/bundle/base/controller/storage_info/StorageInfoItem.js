@@ -219,7 +219,8 @@ Ext.define('Base.controller.storage_info.StorageInfoItem', {
             var form = Ext.create('Ext.form.Panel', {
                 standardSubmit: true,
                 url: url,
-                method: method
+                method: method,
+                contentType: "application/json"
             });
 
             // Call the submit to begin the file download.

@@ -112,6 +112,9 @@ Ext.define('Base.view.attachment.AttachmentGrid', {
 			var uploadUrl = 'attachments';
 			if(useRemoteServer) {
 				var uploadUrl = HF.setting.get('setting-rest_service_host') + HF.setting.get('setting-basic_service_url') + HF.setting.get('setting-attach_upload_path') + storage;
+				console.log(HF.setting.get('setting-basic_service_url'));
+				console.log(HF.setting.get('setting-attach_upload_path'));
+				console.log(storage);
 			}
 
 			//TODO Error 처리, 이름 중복등 오류시 500 에러가 발생함. - 어디서 캐치하나????

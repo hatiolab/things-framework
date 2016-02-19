@@ -39,7 +39,8 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 				click_invoke : this.onInvokeClick,
 				click_list : this.onClickList
 			},
-			'base_diy_service_logic' : this.FormEventHandler()
+			'base_diy_service_logic' : this.FormEventHandler(),
+			'base_attachment_form' : this.FormEventHandler()
 		});
 	},
 	
