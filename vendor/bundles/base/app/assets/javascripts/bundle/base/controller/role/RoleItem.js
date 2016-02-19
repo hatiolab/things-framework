@@ -123,7 +123,8 @@ Ext.define('Base.controller.role.RoleItem', {
 	    Ext.Ajax.request({
 		    url: 'roles/' + this.getRoleId() + '/update_permissions.json',
 		    method : 'POST',
-		    params : { 'role' : Ext.JSON.encode(jsonData) },
+		    //params : { 'role' : Ext.JSON.encode(jsonData) },
+		    jsonData : jsonData,
 		    success : function(response) {
 				this.loadRolePermissions(view);
 				HF.success(T('text.Success to Save'));
