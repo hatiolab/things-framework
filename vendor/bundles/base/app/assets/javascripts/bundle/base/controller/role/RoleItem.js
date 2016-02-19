@@ -119,7 +119,7 @@ Ext.define('Base.controller.role.RoleItem', {
 		Ext.Array.each(models, function(model) {
 			if(model.data.show || model.data.create || model.data.update || model.data.delete) {
 				//jsonData['permissions']['Menu'][model.data.id] = { 'show' : model.data.show, 'create' : model.data.create, 'update' : model.data.update, 'delete' : model.data.delete };
-				jsonData({ menu_id : model.data.id, show : model.data.show, create : model.data.create, update : model.data.update, delete : model.data.delete });
+				jsonData.push({ menu_id : model.data.id, show : model.data.show, create : model.data.create, update : model.data.update, delete : model.data.delete });
 			}
 		});
 
