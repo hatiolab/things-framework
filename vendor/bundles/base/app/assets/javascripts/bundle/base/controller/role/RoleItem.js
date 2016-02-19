@@ -106,9 +106,11 @@ Ext.define('Base.controller.role.RoleItem', {
 		var rootNode = treestore.getRootNode();
 		var masterNodes = rootNode.childNodes;
 		
-		var jsonData = {'permissions' : {'Menu' : {}}};
+		//var jsonData = {'permissions' : {'Menu' : {}}};
+		var jsonData = [];
 		Ext.Array.each(masterNodes, function(masterNode) {
-			jsonData['permissions']['Menu'][masterNode.data.id] = { 'show' : masterNode.data.show };
+			//jsonData['permissions']['Menu'][masterNode.data.id] = { 'show' : masterNode.data.show };
+			jsonData.push({ menu_id : masterNode.data.id, show : masterNode.data.show });
 		});
 		
 		// child menu
@@ -116,7 +118,8 @@ Ext.define('Base.controller.role.RoleItem', {
 		var models = store.getModifiedRecords();
 		Ext.Array.each(models, function(model) {
 			if(model.data.show || model.data.create || model.data.update || model.data.delete) {
-				jsonData['permissions']['Menu'][model.data.id] = { 'show' : model.data.show, 'create' : model.data.create, 'update' : model.data.update, 'delete' : model.data.delete };
+				//jsonData['permissions']['Menu'][model.data.id] = { 'show' : model.data.show, 'create' : model.data.create, 'update' : model.data.update, 'delete' : model.data.delete };
+				jsonData({ menu_id : model.data.id, show : model.data.show, create : model.data.create, update : model.data.update, delete : model.data.delete });
 			}
 		});
 
