@@ -55,7 +55,7 @@ Ext.define('Base.view.diy_template.DiyTemplateEditor', {
 			comp.editor.setValue(record.get('template'))
 		} else {
 			comp.update({
-				logic : record.get('template')
+				template : record.get('template')
 			});
 		}
 	}

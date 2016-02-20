@@ -26,7 +26,9 @@ Ext.define('Base.controller.alarm.AlarmItem', {
 		
 		this.control({
 			'base_alarm_item' : this.EntryPoint(),
-			'base_alarm_form' : this.FormEventHandler()
+			'base_alarm_form' : this.FormEventHandler(),
+			'base_alarm_template_editor' : this.FormEventHandler(),
+			'base_alarm_logic_editor' : this.FormEventHandler()
 		});
 	},
 	

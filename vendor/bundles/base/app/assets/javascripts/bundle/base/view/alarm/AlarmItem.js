@@ -19,6 +19,6 @@ Ext.define('Base.view.alarm.AlarmItem', {
 		{ xtype : 'base_alarm_template_editor' },
 		{ xtype : 'base_alarm_logic_editor' },
 		{ xtype : 'base_attachment_form' },
-		{ xtype : 'base_property_form' }
+		{ xtype : 'base_property_form', onType : 'Alarm' }
 	]
 });

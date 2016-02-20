@@ -20,7 +20,7 @@ Ext.define('Base.view.report.ReportItem', {
 	}, {
 		xtype : 'base_report_preview'
 	}, {
-		xtype : 'base_property_form'
+		xtype : 'base_property_form', onType : 'Report'
 	}, {
 		xtype : 'base_attachment_form'
 	} ]

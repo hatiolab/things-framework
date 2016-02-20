@@ -21,16 +21,15 @@ Ext.define('Base.view.property.PropertyItem', {
 	
 	items : [		
 		{ name : 'id', fieldLabel : T('label.id'), hidden : true },
-		{ name : 'name', fieldLabel : T('label.name'), readOnly : true },
-		{ name : 'description', fieldLabel : T('label.description') },
 		{ name : 'on_type', fieldLabel : T('label.on_type'), readOnly : true },
 		{ name : 'on_id', fieldLabel : T('label.on_id'), readOnly : true },
-		{ name : 'value', fieldLabel : T('label.value'), readOnly : true },
+		{ name : 'name', fieldLabel : T('label.name') },
+		{ name : 'value', fieldLabel : T('label.value') },
 		{ xtype : 'timestamp' }
 	],
 	
 	dockedItems: [{
 		xtype: 'controlbar',
-		items: ['->', 'list', 'save', 'delete']
+		items: ['->', 'save', 'delete']
 	}]
 });

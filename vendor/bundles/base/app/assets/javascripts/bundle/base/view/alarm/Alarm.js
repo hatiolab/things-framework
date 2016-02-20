@@ -17,7 +17,7 @@ Ext.define('Base.view.alarm.Alarm', {
 		{ header : T('label.title'), dataIndex : 'title' , editor : { xtype : 'textfield' , maxLength : 255 }, width : 135 },
 		{ header : T('label.type'), dataIndex : 'alarm_type', editor : { xtype : 'codecombo', commonCode : 'ALARM_TYPE' } },
 		{ header : T('label.receivers'), dataIndex : 'receivers' , editor : { xtype : 'textfield' , maxLength : 1000 }, flex : 1 },
-		{ header : T('label.lang_type'), dataIndex : 'alarm_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_ENGINE' }, width : 90 }
+		{ header : T('label.lang_type'), dataIndex : 'lang_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_ENGINE' }, width : 90 }
 	],	
 	
 	dockedItems : [ {

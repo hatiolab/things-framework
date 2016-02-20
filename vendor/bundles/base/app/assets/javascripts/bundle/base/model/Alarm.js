@@ -19,7 +19,6 @@ Ext.define('Base.model.Alarm', {
 		{ name : 'updater', type : 'auto' },
 		{ name : 'created_at', type : 'date' },
 		{ name : 'updated_at', type : 'date' },
-		{ name : 'properties_attributes', type : 'auto', defaultValue : [] },
 		{ name : 'cud_flag_', type : 'string' }
 	],
 
@@ -29,7 +28,7 @@ Ext.define('Base.model.Alarm', {
 		{ type : 'length', field : 'category', max : 20 },
 		{ type : 'length', field : 'description', max : 255 },
 		{ type : 'length', field : 'title', max : 255 },
-		{ type : 'presence', field : 'alarm_type' },
+		//{ type : 'presence', field : 'alarm_type' },
 		{ type : 'length', field : 'alarm_type', max : 20 },
 		{ type : 'length', field : 'receivers', max : 1000 },
 		{ type : 'length', field : 'lang_type', max : 15 },
