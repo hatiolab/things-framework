@@ -201,7 +201,7 @@ Ext.define('Base.controller.role.RoleItem', {
 		var selectedUsers = [];
 
 		Ext.Array.each(records, function(record) {
-			selectedUsers.push({id : record.id});
+			selectedUsers.push({'cud_flag_' : cudType, 'id' : record.id});
 
 		});
 
