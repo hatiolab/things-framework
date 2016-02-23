@@ -104,13 +104,17 @@ Ext.define('App.util.AppBaseUrl', {
 		var oriSelects = params._s.substr(1, params._s.length - 2);
 		delete params['_s'];
 		var selectArr = oriSelects.split(',');
-
 		params.select = '';
+
 		for(var i = 0 ; i < selectArr.length ; i++) {
-			if(i > 0) {
-				params.select += ',';
+			var selectField = selectArr[i];
+			if(selectField != 'domain' && selectField != 'creator' && selectField != 'updater') {
+				if(params.select.length > 0) {
+					params.select += ',';
+				}
+
+				params.select += HF.camelize(selectField);
 			}
-			params.select += HF.camelize(selectArr[i]);
 		}
 	},
 
@@ -126,8 +130,10 @@ Ext.define('App.util.AppBaseUrl', {
 				var sortObj = sortArr[i];
 				var fieldName = HF.camelize(sortObj.property);
 				var direction = sortObj.direction;
-				sortObj['name'] = fieldName;
-				sortObj['dir'] = direction;
+				//sortObj['name'] = fieldName;
+				//sortObj['dir'] = direction;
+				sortObj['field'] = fieldName;
+				sortObj['ascending'] = (direction == 'ASC');				
 				delete sortObj['property'];
 				delete sortObj['direction'];
 			}
