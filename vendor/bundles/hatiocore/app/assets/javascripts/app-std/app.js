@@ -108,7 +108,7 @@ Ext.define('App.util.AppBaseUrl', {
 
 		for(var i = 0 ; i < selectArr.length ; i++) {
 			var selectField = selectArr[i];
-			if(selectField != 'domain' && selectField != 'creator' && selectField != 'updater') {
+			if(selectField != 'domain') {
 				if(params.select.length > 0) {
 					params.select += ',';
 				}
