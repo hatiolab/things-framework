@@ -13,7 +13,7 @@ time_format: '%H:%M'
 shift_time_format: '%H:%M'
 to_date_db_func : date
 std_name : std
-ops_name : ctl
+ops_name : ops
 default_lat : 37.381
 default_lng : 127.11846
 content_base_url : http://169.53.135.8:8300/

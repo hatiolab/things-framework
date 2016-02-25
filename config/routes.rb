@@ -11,7 +11,7 @@ Elidom::Application.routes.draw do
   
   get "m" => "welcome#ctl"
   
-  #get "#{GlobalConfig.ops_name}" => "welcome##{GlobalConfig.ops_name}"
+  get "#{GlobalConfig.ops_name}" => "welcome##{GlobalConfig.ops_name}"
   
   get "#{GlobalConfig.std_name}" => "welcome##{GlobalConfig.std_name}"
     

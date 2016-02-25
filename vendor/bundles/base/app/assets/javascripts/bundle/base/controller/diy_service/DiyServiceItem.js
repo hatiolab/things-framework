@@ -63,6 +63,7 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 		    jsonData : invokeParams,
 		    success : function(response) {
 		        var res = Ext.JSON.decode(response.responseText);
+				//testView.showResult(testView._record.get('service_out_params'), res);
 				testView.showResult(testView._record.get('service_out_params'), res);
 			},
 			scope : this

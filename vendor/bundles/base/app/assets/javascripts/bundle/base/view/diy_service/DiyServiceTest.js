@@ -73,9 +73,16 @@ Ext.define('Base.view.diy_service.DiyServiceTest', {
 			});
 		});
 
+		var displayData = dataList ? JSON.stringify(dataList, null, 4) : '';
+
 		Ext.create('Frx.common.Popup', {
 			title : 'Service Result',
 			items : {
+				xtype : 'textarea',
+				rows : 20,
+				value : displayData
+			}
+			/*items : {
 				xtype : 'gridpanel',
 				itemId : 'result_grid',
 				store : Ext.create('Ext.data.Store', {
@@ -83,7 +90,7 @@ Ext.define('Base.view.diy_service.DiyServiceTest', {
 					data : dataList
 				}),
 				columns : columns
-			}
+			}*/
 		}).show();
 	}
 });

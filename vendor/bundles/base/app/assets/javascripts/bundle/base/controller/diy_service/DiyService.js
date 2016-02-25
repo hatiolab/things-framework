@@ -32,7 +32,7 @@ Ext.define('Base.controller.diy_service.DiyService', {
 	 * override
 	 */
 	validateMultipleUpdateData : function(data) {		
-		Ext.Array.each(['service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+		Ext.Array.each(['service_logic', 'service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
 			delete data[key];
 		});
 		
