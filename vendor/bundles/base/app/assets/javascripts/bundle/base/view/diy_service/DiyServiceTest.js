@@ -73,6 +73,7 @@ Ext.define('Base.view.diy_service.DiyServiceTest', {
 			});
 		});
 
+		console.log(dataList);
 		var displayData = dataList ? JSON.stringify(dataList, null, 4) : '';
 
 		Ext.create('Frx.common.Popup', {

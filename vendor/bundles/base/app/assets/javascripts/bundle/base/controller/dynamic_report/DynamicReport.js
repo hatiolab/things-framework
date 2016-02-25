@@ -42,20 +42,21 @@ Ext.define('Base.controller.dynamic_report.DynamicReport', {
 		var pagingtoolbar = view.down('pagingtoolbar');
 		pagingtoolbar.hide();
 		
-		if(Ext.isEmpty(params) || Ext.isEmpty(params.id)) {
+		if(!view._menuId) {
 			return;
 		}
 		
 		Ext.Ajax.request({
-			url : 'menus/' + params.id + '/menu_params.json',
+			url : 'menus/' + view._menuId + '/menu_params.json',
 			method : 'GET',
 			scope : this,
 			success : function(response) {
-				var menuParams = Ext.JSON.decode(response.responseText);
-				var paramItems = menuParams.items;
+				var paramItems = Ext.JSON.decode(response.responseText);
+				//var paramItems = menuParams.items;
 				var diySelectionName = '';
 				for(var i = 0 ; i < paramItems.length ; i++) {
-					if(paramItems[i].name == "diySelection") {
+					//if(paramItems[i].name == "diySelection") {
+					if(paramItems[i].name == "diyService") {
 						diySelectionName = paramItems[i].value;
 						break;
 					}
@@ -85,7 +86,8 @@ Ext.define('Base.controller.dynamic_report.DynamicReport', {
 		App.getApplication().fireEvent('titlechange', mainView);
 		
 		Ext.Ajax.request({
-			url : 'diy_selections/show_by_name.json?name=' + selectionName,
+			//url : 'diy_selections/show_by_name.json?name=' + selectionName,
+			url : 'diy_services/show_by_name.json?name=' + selectionName,
 			method : 'GET',
 			scope : this,
 			success : function(response) {
@@ -148,18 +150,21 @@ Ext.define('Base.controller.dynamic_report.DynamicReport', {
 	 */
 	reconfigureGrid : function(diySelection) {
 		var outParams = diySelection.service_out_params;
-		var columns = [];
+		var fields = [], columns = [];
 		
 		for(var i = 0 ; i < outParams.length ; i++) {
 			columns.push({
 				text : outParams[i].description,
-				dataIndex : 'data_' + (i + 1),
+				dataIndex : outParams[i].name,
 				flex : 1
-			})
+			});
+
+			fields.push({ name : outParams[i].name });
 		}
 		
 		var grid =  HF.current.view();
 		var store = grid.getStore();
+		store.model.setFields(fields);
 		grid.reconfigure(store, columns);
 	},
 	
@@ -171,7 +176,7 @@ Ext.define('Base.controller.dynamic_report.DynamicReport', {
 		var grid =  HF.current.view();
 		var store = grid.getStore();
 		params.dynamic = 'Y';
-		store.getProxy().url = 'diy_selections/' + selectionName + '/query';
+		store.getProxy().url = 'diy_services/' + selectionName + '/query';
 		store.getProxy().extraParams = params;
 		store.load();
 	},
@@ -193,6 +198,6 @@ Ext.define('Base.controller.dynamic_report.DynamicReport', {
 	 */
 	onListClickExport : function(grid) {
 		var selectionName = this.getDiySelection().name;
-		HF.exportScreen(grid, 'diy_selections/' + selectionName + '/export_screen.xlsx?dynamic=Y&filename=' + selectionName);
+		HF.exportScreen(grid, 'diy_services/' + selectionName + '/export_screen.xlsx?dynamic=Y&filename=' + selectionName);
 	}
 });
