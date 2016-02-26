@@ -11,7 +11,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 	columns : [
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
 		{ header : T('label.name'), dataIndex : 'name' , editor : { xtype : 'textfield' , maxLength : 62 } },
-		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
+		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, width : 175 },
 		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ 
 			header : T('label.rule'), 

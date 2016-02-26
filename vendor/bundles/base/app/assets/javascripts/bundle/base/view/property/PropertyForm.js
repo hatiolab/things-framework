@@ -65,56 +65,43 @@ Ext.define('Base.view.property.PropertyForm', {
 	saveItem : function(view) {
 		HF.msg.confirm({
 			msg : T('text.Sure to Save'),
+			scope: this,
 			fn : function(btn) {
 				if(btn == 'yes') {
 					var record = this.getItemRecord(view);
-					var props = record.get('properties_attributes');
-					if(props.length > 0) {
+					var grid = this.down('propertygrid');
+					var props = grid.store.data.items;
+
+					if(props && props.length > 0) {
+						var items = [];
 						for(var i = 0 ; i < props.length ; i++) {
 							var prop = props[i];
-							prop['on_type'] = this.onType;
-							prop['on_id'] = record.get('id');
-							prop['cud_flag_'] = 'c';
+							if(!prop.data.id) {
+								items.push({ name : prop.data.name, value : prop.data.value, on_type : this.onType, on_id : record.get('id'), cud_flag_ : 'c' });
+							} else {
+								items.push({ id : prop.data.id, name : prop.data.name, value : prop.data.value, on_type : prop.data.on_type, on_id : prop.data.on_id, cud_flag_ : 'u' });
+							}
 						}
-					}
-					
-				    Ext.Ajax.request({
-						url : 'properties/replace',
-						method : 'POST',
-						jsonData : props,
-						scope : this,
-						success : function(response) {
-							var grid = this.down('propertygrid');
-							grid.fireEvent('after_update_list', grid, 'u', response);
-						}
-					});
+
+						Ext.Ajax.request({
+							url : 'properties/replace',
+							method : 'POST',
+							jsonData : items,
+							scope : this,
+							success : function(response) {
+								HF.msg.success({msg : 'Success'});
+								var grid = this.down('propertygrid');
+								grid.fireEvent('after_update_list', grid, 'u', response);
+							}
+						});						
+					}					
 				}
-			},
-			scope: this
+			}
 		});
 	},	
 		
 	getItemRecord : function(view) {
-		var record = this.mixins.form_life_cycle.getItemRecord(view);
-		
-		var grid = this.down('propertygrid');
-		var attrs = record.get('properties_attributes');
-		Ext.Object.each(grid.getSource(), function(k, v) {
-			var a = Ext.Array.findBy(attrs, function(attr) {
-				return attr.name === k;
-			});
-			
-			if(a) {
-				a.value = v;
-			} else {
-				attrs.push({
-					name : k,
-					value : v
-				});
-			}
-		});
-		
-		return record;
+		return this.mixins.form_life_cycle.getItemRecord(view);
 	},
 	
 	onAfterLoadItem : function(view, record, operation) {
@@ -129,7 +116,7 @@ Ext.define('Base.view.property.PropertyForm', {
 				var grid = this.down('propertygrid');
 				var props = Ext.JSON.decode(response.responseText);
 				var source = {};
-				Ext.Array.each(props, function(prop) { source[prop.name] = prop.value });
+				Ext.Array.each(props, function(prop) { source[prop.name] = prop.value ? prop.value : '' });
 				grid.setSource(source);
 			}
 		});
