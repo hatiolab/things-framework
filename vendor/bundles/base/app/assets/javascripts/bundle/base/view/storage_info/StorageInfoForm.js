@@ -20,9 +20,8 @@ Ext.define('Base.view.storage_info.StorageInfoForm', {
 			flex : 1,
 			xtype : 'codecombo',
 			commonCode : 'UPLOAD_FOLDER_RULE',
-			displayField: 'description',
-			allowBlank : false
-		}
+			displayField: 'description'
+		},
 		{ name : 'path', fieldLabel : T('label.path'), allowBlank : false, maxLength : 255 },
 		{ xtype : 'timestamp' }
 	],

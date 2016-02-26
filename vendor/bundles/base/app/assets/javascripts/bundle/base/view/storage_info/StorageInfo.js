@@ -19,8 +19,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 			width : 85,
 			editor : { 
 				xtype : 'codecombo', 
-				commonCode : 'UPLOAD_FOLDER_RULE',
-				allowBlank : false
+				commonCode : 'UPLOAD_FOLDER_RULE'
 			}
 		},
 		{ 
@@ -49,7 +48,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 				xtype : 'codesearchcombo', 
 				commonCode : 'UPLOAD_FOLDER_RULE',
 				valueField : 'name',
-				displayField : 'description'				
+				displayField : 'name'				
 			}
 		]
 	}, {

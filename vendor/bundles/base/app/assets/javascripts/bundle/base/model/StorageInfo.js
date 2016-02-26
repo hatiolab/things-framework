@@ -18,7 +18,6 @@ Ext.define('Base.model.StorageInfo', {
 	],
 
 	validations : [
-		{ type : 'presence', field : 'description' },
 		{ type : 'length', field : 'description', max : 255 },
 		{ type : 'presence', field : 'name' },
 		{ type : 'length', field : 'name', max : 62 },
