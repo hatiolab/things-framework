@@ -31,7 +31,7 @@ Ext.define('Base.view.attachment.Attachment', {
 		xtype : 'searchform',
 		items : [ 
 			{ fieldLabel : T('label.name'), name : 'name-like' },
-			{ fieldLabel : T('label.description'), name : 'description-like' },
+			//{ fieldLabel : T('label.description'), name : 'description-like' },
 			{ name : 'on_type-eq', 
 				fieldLabel : T('label.on_type'), 
 				xtype : 'entitysearchcombo', 

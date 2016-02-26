@@ -13,9 +13,15 @@ Ext.define('Base.store.Property', {
 	pageSize : 100,
 	
 	sorters : [ {
+		property : 'on_type',
+		direction : 'ASC'
+	}, {
+		property : 'on_id',
+		direction : 'ASC'
+	}, {
 		property : 'name',
 		direction : 'ASC'
-	} ],	
+	} ],
 	
 	proxy : {
 		type : 'rest',
