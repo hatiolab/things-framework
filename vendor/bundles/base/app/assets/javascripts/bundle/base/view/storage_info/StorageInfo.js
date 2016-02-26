@@ -14,6 +14,16 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ 
+			header : T('label.rule'), 
+			dataIndex : 'rule', 
+			width : 85,
+			editor : { 
+				xtype : 'codecombo', 
+				commonCode : 'UPLOAD_FOLDER_RULE',
+				allowBlank : false
+			}
+		},
+		{ 
 			header : T('label.updater'), 
 			dataIndex : 'updater', 
 			xtype : 'entitycolumn' 
@@ -30,9 +40,17 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 	dockedItems : [ {
 		xtype : 'searchform',
 		items : [
-			{ name : 'name-like', fieldLabel : T('label.name')},
-			{ name : 'description-like', fieldLabel : T('label.description')},
-			{ name : 'path-like', fieldLabel : T('label.path')}
+			{ name : 'name-like', fieldLabel : T('label.name') },
+			{ name : 'description-like', fieldLabel : T('label.description') },
+			{ name : 'path-like', fieldLabel : T('label.path') },
+			{ 
+				fieldLabel : T('label.rule'), 
+				name : 'rule-eq', 
+				xtype : 'codesearchcombo', 
+				commonCode : 'UPLOAD_FOLDER_RULE',
+				valueField : 'name',
+				displayField : 'description'				
+			}
 		]
 	}, {
 		xtype : 'controlbar',

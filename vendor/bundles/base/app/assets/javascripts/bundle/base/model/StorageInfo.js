@@ -12,6 +12,7 @@ Ext.define('Base.model.StorageInfo', {
 		{ name : 'updater', type : 'auto' },
 		{ name : 'description', type : 'string' },
 		{ name : 'name', type : 'string' },
+		{ name : 'rule', type : 'string' },
 		{ name : 'path', type : 'string' },
 		{ name : 'cud_flag_', type : 'string' }
 	],

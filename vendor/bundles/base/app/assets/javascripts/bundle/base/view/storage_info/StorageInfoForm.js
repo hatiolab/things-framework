@@ -13,7 +13,16 @@ Ext.define('Base.view.storage_info.StorageInfoForm', {
 	items : [
 		{ name : 'id', fieldLabel : T('label.id'), hidden : true },
 		{ name : 'name', fieldLabel : T('label.name'), allowBlank : false, maxLength : 62 },
-		{ name : 'description', fieldLabel : T('label.description'), allowBlank : false, maxLength : 255 },		
+		{ name : 'description', fieldLabel : T('label.description'), allowBlank : false, maxLength : 255 },	
+		{
+			name : 'rule', 
+			fieldLabel : T('label.rule'), 
+			flex : 1,
+			xtype : 'codecombo',
+			commonCode : 'UPLOAD_FOLDER_RULE',
+			displayField: 'description',
+			allowBlank : false
+		}
 		{ name : 'path', fieldLabel : T('label.path'), allowBlank : false, maxLength : 255 },
 		{ xtype : 'timestamp' }
 	],

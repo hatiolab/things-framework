@@ -23,6 +23,13 @@ Ext.define('Base.view.attachment.AttachmentItem', {
 		{ name : 'id', fieldLabel : T('label.id'), hidden : true },
 		{ name : 'name', fieldLabel : T('label.name'), readOnly : true },
 		{ name : 'description', fieldLabel : T('label.description') },
+		{ 
+			name : 'storage_info', 
+			fieldLabel : T('menu.StorageInfo'), 
+			xtype : 'entityfield', 
+			storeClass : 'Base.store.StorageInfo',
+			allowBlank : false
+		},		
 		{ name : 'on_type', fieldLabel : T('label.on_type'), readOnly : true },
 		{ name : 'on_id', fieldLabel : T('label.on_id'), readOnly : true },
 		{ name : 'tag', fieldLabel : T('label.tag'), readOnly : true },

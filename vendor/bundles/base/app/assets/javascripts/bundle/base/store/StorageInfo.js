@@ -14,7 +14,10 @@ Ext.define('Base.store.StorageInfo', {
 	
 	pageSize : 30,
 	
-
+	sorters : [ {
+		property : 'name',
+		direction : 'ASC'
+	} ],
 	
 	proxy : {
 		type : 'rest',

@@ -14,7 +14,7 @@ Ext.define('Base.store.CommonCode', {
 	
 	buffered : false,
 	
-	pageSize : 30,
+	pageSize : 100,
 	
 	sorters : [ {
 		property : 'name',

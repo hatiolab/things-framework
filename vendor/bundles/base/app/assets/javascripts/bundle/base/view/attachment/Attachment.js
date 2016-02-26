@@ -15,6 +15,7 @@ Ext.define('Base.view.attachment.Attachment', {
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
 		{ header : T('label.name'), width : 140, dataIndex : 'name' },
 		{ header : T('label.description'), width : 150, dataIndex : 'description', editor : { xtype : 'textfield', maxLength : 255 } },
+		{ header : T('menu.StorageInfo'), dataIndex : 'storage_info', width : 100, xtype : 'entitycolumn', editor : { xtype: 'entitycolumneditor', storeClass: 'Base.store.StorageInfo' } },
 		{ header : T('label.on_type'), width : 120, dataIndex : 'on_type' },
 		{ header : T('label.on_id'), width : 100, dataIndex : 'on_id' },
 		{ header : T('label.tag'), width : 100, dataIndex : 'tag' },
@@ -36,8 +37,14 @@ Ext.define('Base.view.attachment.Attachment', {
 				xtype : 'entitysearchcombo', 
 				storeClass : 'Base.store.Entity',
 				valueField : 'name'
-			},			
+			},
 			{ fieldLabel : T('label.tag'), name : 'tag-like' },
+			{ name : 'storage_info.name-eq', 
+				fieldLabel : T('menu.StorageInfo'), 
+				xtype : 'entitysearchcombo', 
+				storeClass : 'Base.store.StorageInfo',
+				valueField : 'name'
+			}			
 		]
 	} ]
 	
