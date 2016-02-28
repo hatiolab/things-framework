@@ -43,49 +43,35 @@ Ext.define('Base.controller.chit.Chit', {
 	},
 
 	onInvokeClick: function(view) {
-		Ext.Ajax.request({
-			url: 'diy_templates/processXlsTemplate/excel_report',
-			method: 'get',
-			params: {
-				"context": [{
-					"name": "1",
-					"mimetype": "1",
-					"path": "1",
-					"updaterId": "1"
-				}]
-			},
+		/*Ext.Ajax.request({
+			url : '/diy_templates/ExcelTemplate/template/excel',
+			method: 'POST',
 			success: function(response) {
 				console.log(response.responseText);
 			}
-		});
-   //      var url = 'http://localhost:9002/rest/diy_templates/processXlsTemplate/excel_report';
-   //      var method = 'POST';
-   //      var params = {
- 		// 		context : [{
-			// 		"name": "1",
-			// 		"mimetype": "1",
-			// 		"path": "1",
-			// 		"updaterId": "1"
-			// 	}]
-   //          };
+		});*/
 
-   //      var form = Ext.create('Ext.form.Panel', {
-   //          standardSubmit: true,
-   //          url: url,
-   //          method: method,
-			// contentType: "application/json"
-   //      });
+        var url = 'http://localhost:9002/rest/diy_templates/ExcelTemplate/template/excel';
+        HF.download(url);
 
-   //      // Call the submit to begin the file download.
-   //      form.submit({
-   //          target: '_blank', // Avoids leaving the page. 
-   //          jsonData: params
-   //      });
+        /*var method = 'POST';
 
-   //      // Clean-up the form
-   //      Ext.defer(function() {
-   //          form.close();
-   //      }, 100);
+        var form = Ext.create('Ext.form.Panel', {
+            //standardSubmit: true,
+            url: url,
+            method: method,
+			contentType: "application/json"
+        });
+
+        // Call the submit to begin the file download.
+        form.submit({
+            target: '_blank'
+        });
+
+        // Clean-up the form
+        Ext.defer(function() {
+            form.close();
+        }, 100);*/
 	}
 
 });
