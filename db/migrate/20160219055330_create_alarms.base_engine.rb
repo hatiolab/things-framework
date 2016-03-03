@@ -8,6 +8,7 @@ class CreateAlarms < ActiveRecord::Migration
 			t.string :category, :limit => 20
 			t.string :description, :limit => 255
 			t.string :title, :limit => 255
+			t.string :lang_type, :null => false, :limit => 20
 			t.string :alarm_type, :null => false, :limit => 20
 			t.string :receivers, :limit => 1000
 			t.text :template

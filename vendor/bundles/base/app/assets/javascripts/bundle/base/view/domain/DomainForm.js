@@ -25,8 +25,6 @@ Ext.define('Base.view.domain.DomainForm', {
 			valueField: 'value',
 			allowBlank : false
 		},
-		{ name : 'lat', fieldLabel : T('label.lat'), allowBlank : false },
-		{ name : 'lng', fieldLabel : T('label.lng'), allowBlank : false },		
 		{ xtype : 'timestamp' }
 	],
 	
