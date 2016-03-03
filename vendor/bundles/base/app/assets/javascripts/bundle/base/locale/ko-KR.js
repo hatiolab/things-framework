@@ -107,7 +107,11 @@ T({
 		'path' : '경로',
 		'service_class' : 'Service Class',
 		'file' : '파일',
-		'lang_type' : 'Language'		
+		'lang_type' : 'Language',
+		'rule' : 'Rule',
+		'to' : 'To',
+		'path' : '경로',
+		'module' : '모듈'
 	},
 	title : {
 		'item' : '아이템',
@@ -164,7 +168,9 @@ T({
 		'CodeExpansion' : '확장 코드',
 		'StorageInfo' : '저장소 관리',
 		'Rest' : 'Service API',
-		'Message' : '메시지'
+		'Message' : '메시지',
+		'Alarm' : '알람',
+		'DiyTemplate' : '커스텀 템플릿'		
 	},
 	button : {
 		'report' : '리포트',
@@ -180,7 +186,8 @@ T({
 		'moveup' : '위로 이동',
 		'movedown' : '아래로 이동',
 		'preview' : '미리보기',
-		'ok' : 'OK'
+		'ok' : 'OK',
+		'download' : '다운로드'
 	},
 	tooltip : {
 		'redo' : '재실행',

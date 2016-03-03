@@ -106,7 +106,11 @@ T({
 		'path' : 'Path',
 		'service_class' : 'Service Class',
 		'file' : 'File',
-		'lang_type' : 'Language'
+		'lang_type' : 'Language',
+		'rule' : 'Rule',
+		'to' : 'To',
+		'path' : 'Path',
+		'module' : 'Module'		
 	},
 	title : {
 		'item' : '项',
@@ -166,7 +170,9 @@ T({
 		'CodeExpansion' : 'Expansion Code',
 		'StorageInfo' : 'Storage',
 		'Rest' : 'Service API',
-		'Message' : 'Message'
+		'Message' : 'Message',
+		'Alarm' : 'Alarm',
+		'DiyTemplate' : 'Custom Template'
 	},
 	button : {
 		'report' : '报表',
@@ -182,7 +188,8 @@ T({
 		'moveup' : '向上移动',
 		'movedown' : '向下移动',
 		'preview' : '预览',
-		'ok' : 'OK'
+		'ok' : 'OK',
+		'download' : 'Download'
 	},
 	tooltip : {
 		'redo' : '重做',

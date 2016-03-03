@@ -107,7 +107,11 @@ T({
 		'path' : 'Path',
 		'service_class' : 'Service Class',
 		'file' : 'File',
-		'lang_type' : 'Language'
+		'lang_type' : 'Language',
+		'rule' : 'Rule',
+		'to' : 'To',
+		'path' : 'Path',
+		'module' : 'Module'
 	},
 	title : {
 		'item' : 'Item',
@@ -162,7 +166,9 @@ T({
 		'CodeExpansion' : 'Expansion Code',
 		'StorageInfo' : 'Storage',
 		'Rest' : 'Service API',
-		'Message' : 'Message'
+		'Message' : 'Message',
+		'Alarm' : 'Alarm',
+		'DiyTemplate' : 'Custom Template'
 	},
 	button : {
 		'report' : 'Report',
@@ -178,7 +184,8 @@ T({
 		'moveup' : 'Move Up',
 		'movedown' : 'Move Down',
 		'preview' : 'Preview',
-		'ok' : 'OK'
+		'ok' : 'OK',
+		'download' : 'Download'
 	},
 	tooltip : {
 		'redo' : 'Redo',
