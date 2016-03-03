@@ -10,7 +10,7 @@ class CreateExpansionCodes < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :expansion_codes, [:domain_id, :name], :unique => true, :name => :ix_expansion_codes_0
+		add_index :expansion_codes, [:domain_id, :name], :unique => true, :name => :ix_exp_code_0
 	end
 
 end

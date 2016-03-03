@@ -13,7 +13,7 @@ class CreateChits < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :chits, [:domain_id,:entity_id,:name], :unique => true, :name => :ix_chits_0
+		add_index :chits, [:domain_id,:entity_id,:name], :unique => true, :name => :ix_chit_0
 	end
 
 end

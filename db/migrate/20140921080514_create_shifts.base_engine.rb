@@ -5,7 +5,7 @@ class CreateShifts < ActiveRecord::Migration
 		create_table :shifts do |t|
 			t.references :domain, :null => false
 			t.string :name, :limit => 32
-      t.boolean :default_flag
+			t.boolean :default_flag
 			t.integer :total_shift, :limit => 2
 			t.string :shift1_start, :limit => 8
 			t.string :shift2_start, :limit => 8

@@ -11,6 +11,6 @@ class CreateReports < ActiveRecord::Migration
 			
     end
 
-    add_index :reports, [:domain_id, :name], :unique => false, :name => :ix_reports_0		
+    add_index :reports, [:domain_id, :name], :unique => false, :name => :ix_report_0		
   end
 end

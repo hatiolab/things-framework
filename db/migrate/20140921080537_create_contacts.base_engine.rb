@@ -21,6 +21,6 @@ class CreateContacts < ActiveRecord::Migration
 			
     end
 
-    add_index :contacts, [:domain_id, :name], :unique => false, :name => :ix_contacts_0		
+    add_index :contacts, [:domain_id, :name], :unique => false, :name => :ix_contact_0		
   end
 end

@@ -7,8 +7,8 @@ class CreateEntities < ActiveRecord::Migration
 			t.string :name, :null => false, :limit => 64
 			t.string :description, :limit => 255
 			t.string :bundle, :null => false, :limit => 64
-      t.references :list_infographic
-      t.references :item_infographic
+			t.references :list_infographic
+			t.references :item_infographic
 			t.userstamps
 			t.timestamps
 		end

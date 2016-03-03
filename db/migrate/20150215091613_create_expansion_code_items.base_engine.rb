@@ -15,7 +15,7 @@ class CreateExpansionCodeItems < ActiveRecord::Migration
 			t.boolean :nullable
 		end
 
-		add_index :expansion_code_items, [:expansion_code_id,:name], :unique => true, :name => :ix_expansion_code_items_0
+		add_index :expansion_code_items, [:expansion_code_id,:name], :unique => true, :name => :ix_exp_code_item_0
 	end
 
 end
