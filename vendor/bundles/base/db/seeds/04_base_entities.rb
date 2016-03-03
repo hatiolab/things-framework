@@ -93,19 +93,14 @@ Entity.setup Report, {:bundle => 'base'} do
   @list_columns = ['name', 'template', 'updater_id', 'updated_at']
 end
 
-Entity.setup RemTrace, {:bundle => 'base'} do
-  @list_columns = ['name', 'entity_type', 'entity_id', 'content', 'creator_id', 'created_at']
-end
+# Entity.setup RemTrace, {:bundle => 'base'} do
+#   @list_columns = ['name', 'entity_type', 'entity_id', 'content', 'creator_id', 'created_at']
+# end
 
-Entity.setup RemTrace, {:bundle => 'base'} do
-  @list_columns = ['entity_type', 'entity_id', 'name', 'content', 'updater_id', 'updated_at']
-  column :entity_type, :resource => 'POLYMORPHIC'
-end
-
-Entity.setup Chit, {:bundle => 'base'} do
-  @list_columns = ['entity_id', 'name', 'description', 'updater_id', 'updated_at']
-  column :entity_id, :resource => 'POLYMORPHIC'
-end
+# Entity.setup Chit, {:bundle => 'base'} do
+#   @list_columns = ['entity_id', 'name', 'description', 'updater_id', 'updated_at']
+#   column :entity_id, :resource => 'POLYMORPHIC'
+# end
 
 Entity.setup StorageInfo, {:bundle => 'base'} do
   @list_columns = ['name', 'description', 'path', 'updater_id', 'updated_at']
@@ -113,5 +108,10 @@ end
 
 Entity.setup Message, {:bundle => 'base'} do
   @list_columns = ['locale', 'name', 'display', 'updater_id', 'updated_at']
+  column :locale, :code => 'LOCALE'
+end
+
+Entity.setup Alarm, {:bundle => 'base'} do
+  @list_columns = ['category', 'name', 'title', 'alarm_type', 'lang_type', 'receivers', 'updater_id', 'updated_at']
   column :locale, :code => 'LOCALE'
 end

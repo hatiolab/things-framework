@@ -5,6 +5,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.references :domain, :null => false
       t.string :name, :null => false, :limit => 64
       t.string :description, :limit => 255
+      t.references :storage_info
       t.string :mimetype, :limit => 10
       t.integer :file_size
       t.string :path, :limit => 2000

@@ -11,6 +11,6 @@ class CreateVariables < ActiveRecord::Migration
 			
     end
 
-    add_index :variables, [:domain_id, :name], :unique => true, :name => :ix_variables_0		
+    add_index :variables, [:domain_id, :name], :unique => true, :name => :ix_variable_0		
   end
 end

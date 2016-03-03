@@ -42,7 +42,6 @@ CommonCode.setup :MENU_CATEGORY, {:description => 'STANDARD OR TERMINAL'} do
 end
 
 CommonCode.setup :SCRIPT_TYPE, {:description => 'Script type'} do
-  code 'JSON' => 'Json data'
   code 'SQL' => 'Database Query'
   code 'DSL' => 'Business Logic'
   code 'DSL-SQL' => 'Query Made by Logic'
@@ -69,6 +68,40 @@ CommonCode.setup :ENTITY_FIELD_TYPE, {:description => 'Entity Field Type'} do
   code :binary => 'binary'
 end
 
+CommonCode.setup :LABEL_STATUS, {:description => 'Label Status'} do
+  code :NEW => 'New'
+  code :RELEASE => 'Released'
+  code :EDIT => 'Editing'
+end
+
+CommonCode.setup :SCRIPT_ENGINE, {:description => 'Script Engine'} do
+  code :JavaScript => 'JavaScript'
+  code :groovy => 'Groovy'
+  code :ruby => 'Ruby'
+end
+
+CommonCode.setup :ALARM_TYPE, {:description => 'Alarm Type'} do
+  code :MAIL => 'E-Mail'
+  code :WEBSOCKET => 'Websocket Push'
+  code :MOBILE => 'Mobile Push'
+  code :HTTP => 'Http Invocation'
+end
+
+CommonCode.setup :ALARM_CATEGORY, {:description => 'Alarm Category'} do
+  code :TEST => 'Test'
+  code :QUALITY => 'Quality'
+  code :SYSTEM => 'System'
+  code :MASTER => 'Master Data'
+end
+
+CommonCode.setup :UPLOAD_FOLDER_RULE, {:description => 'Upload Folder Rule'} do
+  code :YEAR => 'Year (/YYYY)'
+  code :MONTH => 'Month (/YYYY/MM)'
+  code :DAY => 'Day (/YYYY/MM/DD)'
+  code :RANDOM => 'Random (UUID)'
+  code :CUSTOM => 'By User Input'
+end
+
 CommonCode.setup :VARIABLE_CATEGORY, {:description => 'Variable Category'} do
   code :SYSTEM => 'SYSTEM'
   code :SESSION => 'SESSION'
@@ -84,16 +117,4 @@ CommonCode.setup :PRINTER_TYPE, {:description => 'Printer Type'} do
   code :zebra => 'zebra'
   code :datamax => 'datamax'
   code :printronix => 'printronix'
-end
-
-CommonCode.setup :LABEL_STATUS, {:description => 'Label Status'} do
-  code :NEW => 'New'
-  code :RELEASE => 'Released'
-  code :EDIT => 'Editing'
-end
-
-CommonCode.setup :SCRIPT_ENGINE, {:description => 'Script Engine'} do
-  code :JavaScript => 'JavaScript'
-  code :groovy => 'Groovy'
-  code :ruby => 'Ruby'
 end

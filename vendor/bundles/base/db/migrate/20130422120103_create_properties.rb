@@ -10,6 +10,6 @@ class CreateProperties < ActiveRecord::Migration
       t.timestamps
     end
     
-		add_index :properties, [:domain_id, :on_type, :on_id, :name], :unique => true, :name => :ix_property_0
+		add_index :properties, [:domain_id, :on_type, :on_id, :name], :unique => true, :name => :ix_prop_0
   end
 end

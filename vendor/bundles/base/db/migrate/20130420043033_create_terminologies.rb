@@ -16,6 +16,6 @@ class CreateTerminologies < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :terminologies, [:domain_id, :locale, :category, :name], :unique => true, :name => :ix_terminologies_0
+    add_index :terminologies, [:domain_id, :locale, :category, :name], :unique => true, :name => :ix_terms_0
   end
 end

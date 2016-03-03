@@ -11,8 +11,8 @@ class CreateRests < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :rests, [:name], :unique => true, :name => :ix_rests_0
-		add_index :rests, [:domain_id, :updated_at], :name => :ix_rests_1
+		add_index :rests, [:name], :unique => true, :name => :ix_rest_0
+		add_index :rests, [:domain_id, :updated_at], :name => :ix_rest_1
 	end
 
 end

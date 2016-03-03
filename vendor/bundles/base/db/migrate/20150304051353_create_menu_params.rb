@@ -8,7 +8,7 @@ class CreateMenuParams < ActiveRecord::Migration
 			t.string :value, :null => false, :limit => 4000
 		end
 
-		add_index :menu_params, [:menu_id,:name], :unique => true, :name => :ix_menu_params_0
+		add_index :menu_params, [:menu_id,:name], :unique => true, :name => :ix_menu_param_0
 	end
 
 end

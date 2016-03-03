@@ -16,8 +16,8 @@ class CreateAlarms < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :alarms, [:domain_id,:name], :unique => true, :name => :ix_alarms_0
-		add_index :alarms, [:domain_id, :updated_at], :name => :ix_alarms_1
+		add_index :alarms, [:domain_id,:name], :unique => true, :name => :ix_alarm_0
+		add_index :alarms, [:domain_id, :updated_at], :name => :ix_alarm_1
 	end
 
 end

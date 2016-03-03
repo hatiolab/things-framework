@@ -13,6 +13,6 @@ class CreateInfographics < ActiveRecord::Migration
 			
     end
 
-    add_index :infographics, [:domain_id, :name], :unique => true, :name => :ix_infographics_0		
+    add_index :infographics, [:domain_id, :name], :unique => true, :name => :ix_infographic_0		
   end
 end

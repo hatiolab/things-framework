@@ -11,8 +11,8 @@ class CreateDiyTemplates < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :diy_templates, [:domain_id,:name], :unique => true, :name => :ix_diy_templates_0
-		add_index :diy_templates, [:domain_id, :updated_at], :name => :ix_diy_templates_1
+		add_index :diy_templates, [:domain_id,:name], :unique => true, :name => :ix_diy_template_0
+		add_index :diy_templates, [:domain_id, :updated_at], :name => :ix_diy_template_1
 	end
 
 end

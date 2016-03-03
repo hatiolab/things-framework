@@ -10,8 +10,8 @@ class CreateMessages < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		add_index :messages, [:domain_id,:name,:locale], :unique => true, :name => :ix_messages_0
-		add_index :messages, [:domain_id, :updated_at], :name => :ix_messages_1
+		add_index :messages, [:domain_id,:name,:locale], :unique => true, :name => :ix_message_0
+		add_index :messages, [:domain_id, :updated_at], :name => :ix_message_1
 	end
 
 end
