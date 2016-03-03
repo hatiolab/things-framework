@@ -7,6 +7,11 @@ class CreateCommonCodes < ActiveRecord::Migration
 			t.string :name, :null => false, :limit => 64
 			t.string :description, :limit => 255
 			t.references :parent
+			t.string :code1, :limit => 255
+			t.string :code2, :limit => 255
+			t.string :code3, :limit => 255
+			t.string :code4, :limit => 255
+			t.string :code5, :limit => 255			
 			t.userstamps
 			t.timestamps
 		end
