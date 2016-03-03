@@ -17,7 +17,7 @@ Ext.define('Base.view.alarm.AlarmForm', {
 		{ name : 'description', fieldLabel : T('label.description'), maxLength : 255 },
 		{ name : 'title', fieldLabel : T('label.title'), maxLength : 255 },
 		{ name : 'alarm_type', fieldLabel : T('label.type'), xtype : 'codefield', commonCode : 'ALARM_TYPE' },
-		{ name : 'receivers', fieldLabel : T('label.receivers'), maxLength : 1000 },
+		{ name : 'receivers', fieldLabel : T('label.to'), maxLength : 1000 },
 		{ name : 'lang_type', fieldLabel : T('label.lang_type'), xtype : 'codefield', commonCode : 'SCRIPT_ENGINE' },
 		//{ name : 'template', fieldLabel : T('label.template'), xtype : 'textareafield' },
 		//{ name : 'logic', fieldLabel : T('label.logic'), xtype : 'textareafield' },
