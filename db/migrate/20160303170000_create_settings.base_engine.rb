@@ -4,7 +4,7 @@ class CreateSettings < ActiveRecord::Migration
     create_table :settings do |t|
       t.references :domain, :null => false
       t.string :name, :limit => 64, :null => false
-      t.string :description, :limit => 255, :null => false
+      t.string :description, :limit => 255
       t.string :value, :limit => 2000
       t.timestamps
       t.userstamps
