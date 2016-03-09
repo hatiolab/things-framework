@@ -12,6 +12,8 @@ class CreateLabels < ActiveRecord::Migration
 			t.string :tags, :limit => 255
 			t.string :status, :null => false, :limit => 15
 			t.text :thumbnail
+			t.float :width
+			t.float :height
 			t.boolean :latest_released
 			t.boolean :latest_editing
 			t.text :command
