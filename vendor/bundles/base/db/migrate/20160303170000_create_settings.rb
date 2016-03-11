@@ -4,6 +4,7 @@ class CreateSettings < ActiveRecord::Migration
       t.references :domain, :null => false
       t.string :name, :limit => 64, :null => false
       t.string :description, :limit => 255
+      t.boolean :global_flag
       t.string :value, :limit => 2000
       t.timestamps
       t.userstamps
