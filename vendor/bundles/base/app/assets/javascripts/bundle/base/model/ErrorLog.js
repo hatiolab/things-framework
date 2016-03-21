@@ -3,7 +3,7 @@ Ext.define('Base.model.ErrorLog', {
 	extend : 'Ext.data.Model',
     
 	fields : [
-		{ name : 'id', type : 'integer' },
+		{ name : 'id', type : 'string' },
 		{ name : 'issue_date', type : 'date' },
 		{ name : 'status', type : 'string' },
 		{ name : 'error_type', type : 'string' },
