@@ -125,6 +125,61 @@ Ext.define('Base.view.entity.EntityColumnList', {
 			xtype : 'numberfield',
 			minValue : 0
 		}
+	}, { 
+		dataIndex : 'search_rank',
+		header : T('label.search_rank'),
+		width : 95,
+		align : 'right',
+		editor : {
+			xtype : 'numberfield',
+			minValue : 0
+		}
+	}, { 
+		dataIndex : 'sort_rank',
+		header : T('label.sort_rank'),
+		width : 90,
+		align : 'right',
+		editor : {
+			xtype : 'numberfield',
+			minValue : 0
+		}
+	}, { 
+		dataIndex : 'reverse_sort',
+		header : T('label.reverse_sort'),
+		width : 105,
+		xtype : 'checkcolumn'
+	}, { 
+		dataIndex : 'editor',
+		header : T('label.editor'),
+		width : 100,
+		editor : {
+			xtype: 'textfield'
+		}
+	}, { 
+		dataIndex : 'width',
+		header : T('label.width'),
+		width : 60,
+		align : 'right',
+		editor : {
+			xtype : 'numberfield',
+			minValue : 0
+		}
+	}, { 
+		dataIndex : 'align',
+		header : T('label.align'),
+		width : 65,
+		align : 'right',
+		editor : {
+			xtype : 'textfield'
+		}
+	}, { 
+		dataIndex : 'format',
+		header : T('label.format'),
+		width : 75,
+		align : 'right',
+		editor : {
+			xtype : 'textfield'
+		}
 	} ],
 	
 	dockedItems: [ {
@@ -150,6 +205,13 @@ Ext.define('Base.view.entity.EntityColumnList', {
 			ref_name : '',
 			list_rank : 0,
 			disp_rank : (this.store.getCount() + 1) * 10,
+			search_rank : 0,
+			sort_rank : 0,
+			reverse_sort : false,
+			editor : '',
+			width : 80,
+			align : 'left',
+			format : '',
 			cud_flag_ : ''
 		};
 	}
