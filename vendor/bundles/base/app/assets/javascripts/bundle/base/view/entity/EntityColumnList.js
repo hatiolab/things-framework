@@ -151,7 +151,7 @@ Ext.define('Base.view.entity.EntityColumnList', {
 	}, { 
 		dataIndex : 'editor',
 		header : T('label.editor'),
-		width : 100,
+		width : 85,
 		editor : {
 			xtype: 'textfield'
 		}
@@ -167,10 +167,10 @@ Ext.define('Base.view.entity.EntityColumnList', {
 	}, { 
 		dataIndex : 'align',
 		header : T('label.align'),
-		width : 65,
-		align : 'right',
+		width : 60,
 		editor : {
-			xtype : 'textfield'
+			xtype : 'codecombo', 
+			commonCode : 'ALIGNMENT'
 		}
 	}, { 
 		dataIndex : 'format',

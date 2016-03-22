@@ -68,6 +68,12 @@ CommonCode.setup :ENTITY_FIELD_TYPE, {:description => 'Entity Field Type'} do
   code :binary => 'binary'
 end
 
+CommonCode.setup :ALIGNMENT, {:description => 'Alignment'} do
+  code :left => 'Left'
+  code :center => 'Center'
+  code :right => 'Right'
+end
+
 CommonCode.setup :LABEL_STATUS, {:description => 'Label Status'} do
   code :NEW => 'New'
   code :RELEASE => 'Released'
