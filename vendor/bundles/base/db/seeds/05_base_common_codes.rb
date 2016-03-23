@@ -36,6 +36,11 @@ CommonCode.setup :MENU_TYPE, {:description => 'Menu type'} do
   code :SEPARATOR => 'SEPARATOR'
 end
 
+CommonCode.setup :ROUTING_TYPE, {:description => 'Menu Routing Type'} do
+  code :STATIC => 'Static'
+  code :RESOURCE => 'Dynamic Resource'
+end
+
 CommonCode.setup :MENU_CATEGORY, {:description => 'STANDARD OR TERMINAL'} do
   code :STANDARD => 'STANDARD'
   code :TERMINAL => 'TERMINAL'

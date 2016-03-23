@@ -13,6 +13,8 @@ Ext.define('Base.model.Menu', {
 		{ name : 'rank', type : 'integer' },
 		{ name : 'icon_path', type : 'string' },
 		{ name : 'hidden_flag', type : 'boolean' },
+		{ name : 'routing', type : 'string' },
+		{ name : 'routing_type', type : 'string' },
 		{ name : 'creator', type : 'auto' },
 		{ name : 'updater', type : 'auto' },
 		{ name : 'created_at', type : 'date' }, 

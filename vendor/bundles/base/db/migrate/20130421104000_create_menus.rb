@@ -11,6 +11,8 @@ class CreateMenus < ActiveRecord::Migration
 			t.integer :rank, :default => 100
 			t.string :icon_path, :limit => 255
 			t.boolean :hidden_flag, :default => false
+			t.string :routing, :limit => 64
+			t.string :routing_type, :limit => 20			
 			t.userstamps
 			t.timestamps
 			

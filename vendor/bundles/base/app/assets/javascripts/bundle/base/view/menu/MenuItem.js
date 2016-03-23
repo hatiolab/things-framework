@@ -53,11 +53,22 @@ Ext.define('Base.view.menu.MenuItem', {
 			renderer : function(val) {
 				return T('menu.' + val);
 			} 
+		},
+		{ 
+			header : T('label.routing_type'), 
+			dataIndex : 'routing_type', 
+			width : 100,
+			menuDisabled : true,
+			editor : { 
+				xtype : 'codecombo', 
+				commonCode : 'ROUTING_TYPE',
+				allowBlank : false 
+			} 
 		},		
 		{ 
-			header : T('label.description'), 
-			dataIndex : 'description', 
-			width : 150,
+			header : T('label.routing'), 
+			dataIndex : 'routing', 
+			width : 90,
 			menuDisabled : true,
 			editor : { 
 				xtype : 'textfield', 
