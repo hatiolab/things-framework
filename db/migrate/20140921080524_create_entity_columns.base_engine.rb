@@ -23,6 +23,7 @@ class CreateEntityColumns < ActiveRecord::Migration
       t.string :align, :default => 'left'
       t.string :format, :limit => 64
       t.string :editor, :default => 'text', :limit => 32
+      t.string :operator, :limit => 15
     end
 
     add_index :entity_columns, [:entity_id], :name => :ix_entity_column_0

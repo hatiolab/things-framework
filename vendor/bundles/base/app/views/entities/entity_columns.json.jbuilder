@@ -4,7 +4,7 @@ end
 
 json.items do |json|
 	json.array!(@entity_columns) do |entity_column|
-  	json.(entity_column, :id,:entity_id, :name,:description,:term,:col_type,:col_size,:nullable,:uniq_rank,:def_val,:ref_type,:ref_name,:list_rank,:disp_rank,:search_rank,:sort_rank,:editor,:width,:align,:format)
+  	json.(entity_column, :id,:entity_id, :name,:description,:term,:col_type,:col_size,:nullable,:uniq_rank,:def_val,:ref_type,:ref_name,:list_rank,:disp_rank,:search_rank,:sort_rank,:editor,:width,:align,:format,:operator)
 	end
 end
 

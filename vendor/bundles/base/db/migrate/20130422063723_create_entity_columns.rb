@@ -15,6 +15,14 @@ class CreateEntityColumns < ActiveRecord::Migration
       t.string :ref_name, :limit => 64
       t.integer :list_rank, :default => 0
       t.integer :disp_rank, :default => 0
+      t.integer :search_rank, :default => 0
+      t.integer :sort_rank, :default => 0
+      t.boolean :reverse_sort
+      t.integer :width, :default => 0
+      t.string :align, :default => 'left'
+      t.string :format, :limit => 64
+      t.string :editor, :default => 'text', :limit => 32
+      t.string :operator, :limit => 15
     end
 
     add_index :entity_columns, [:entity_id], :name => :ix_entity_column_0

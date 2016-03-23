@@ -180,6 +180,15 @@ Ext.define('Base.view.entity.EntityColumnList', {
 		editor : {
 			xtype : 'textfield'
 		}
+	}, { 
+		dataIndex : 'operator',
+		header : T('label.operator'),
+		width : 75,
+		align : 'right',
+		editor : {
+			xtype : 'codecombo', 
+			commonCode : 'QUERY_OPERATOR'
+		}
 	} ],
 	
 	dockedItems: [ {
