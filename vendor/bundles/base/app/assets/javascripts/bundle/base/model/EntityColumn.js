@@ -20,10 +20,11 @@ Ext.define('Base.model.EntityColumn', {
 		{ name : 'search_rank', 	type : 'integer'},
 		{ name : 'sort_rank', 		type : 'integer'},
 		{ name : 'reverse_sort', 	type : 'boolean'},
-		{ name : 'editor', 				type : 'string'},
+		{ name : 'editor', 				type : 'string' },
 		{ name : 'width', 				type : 'integer'},
-		{ name : 'align', 				type : 'string'},
-		{ name : 'format', 				type : 'string'},
+		{ name : 'align', 				type : 'string' },
+		{ name : 'format', 				type : 'string' },
+		{ name : 'operator', 			type : 'string' },
 		{ name : 'cud_flag_', 		type : 'string' } 
 	],
 	

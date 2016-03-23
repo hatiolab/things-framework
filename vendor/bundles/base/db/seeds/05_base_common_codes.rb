@@ -53,25 +53,44 @@ CommonCode.setup :ENTITY_REF_TYPE, {:description => 'Entity Reference Type'} do
 end
 
 CommonCode.setup :ENTITY_FIELD_TYPE, {:description => 'Entity Field Type'} do
-  code :string => 'string'
-  code :text => 'text'
-  code :long => 'long'
-  code :double => 'double'
-  code :integer => 'integer'
-  code :float => 'float'
-  code :decimal => 'decimal'
-  code :date => 'date'
-  code :datetime => 'datetime'
-  code :timestamp => 'timestamp'
-  code :time => 'time'
-  code :boolean => 'boolean'
-  code :binary => 'binary'
+  code 'button' => 'Button'
+  code 'label' => 'Label'
+  code 'text' => 'Text'
+  code 'error' => 'Error'
+  code 'format' => 'Format'
+  code 'menu' => 'Menu'
+  code 'setting' => 'Setting'
+  code 'title' => 'Title'
+  code 'tooltip' => 'Tooltip'
 end
 
-CommonCode.setup :ALIGNMENT, {:description => 'Alignment'} do
-  code :left => 'Left'
+CommonCode.setup :QUERY_OPERATOR, {:description => 'Query Operator'} do
+  code :eq => 'equal'
+  code :noteq => 'not equal'
+  code :notin => 'not in'
+  code :in => 'in'
+  code :is_null => 'is null'
+  code :is_not_null => 'is not null'
+  code :is_false => 'is false'
+  code :is_true => 'is true'
+  code :is_present => 'is present'
+  code :is_blank => 'is blank'
+  code :gt => 'greater than'
+  code :gte => 'greater than equal'
+  code :lt => 'less than'
+  code :lte => 'less than equal'
+  code :like => 'like'
+  code :nlike => 'not like'
+  code :contains => 'contains'
+  code :sw => 'starts with'
+  code :ew => 'ends with'
+  code :dnsw => 'does not starts with'
+  code :dnew => 'does not ends with'
+end
+
+CommonCode.setup :ALIGNMENT, {:description => 'Grid Column Alignment'} do
+  code :far => 'Far'
   code :center => 'Center'
-  code :right => 'Right'
 end
 
 CommonCode.setup :LABEL_STATUS, {:description => 'Label Status'} do
