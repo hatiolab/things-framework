@@ -21,7 +21,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 				commonCode : 'STORAGE_CATEGORY'
 			}
 		},
-		{ header : T('label.tag'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 64 }, flex : 1 },
+		{ header : T('label.tag'), dataIndex : 'tag' , editor : { xtype : 'textfield' , maxLength : 64 }, flex : 1 },
 		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ 
 			header : T('label.rule'), 
@@ -39,7 +39,7 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 			width : 60 
 		},
 		{ 
-			header : T('label.resource'), 
+			header : T('label.entity'), 
 			dataIndex : 'resource_flag', 
 			xtype : 'checkcolumn', 
 			width : 60 
