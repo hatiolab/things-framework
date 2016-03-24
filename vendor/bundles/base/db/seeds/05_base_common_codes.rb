@@ -126,6 +126,13 @@ CommonCode.setup :ALARM_CATEGORY, {:description => 'Alarm Category'} do
   code :MASTER => 'Master Data'
 end
 
+CommonCode.setup :STORAGE_CATEGORY, {:description => 'Storage Category'} do
+  code :backup => 'Back Up'
+  code :binary => 'Binary'
+  code :document => 'Document'
+  code :image => 'Image'
+end
+
 CommonCode.setup :UPLOAD_FOLDER_RULE, {:description => 'Upload Folder Rule'} do
   code :YEAR => 'Year (/YYYY)'
   code :MONTH => 'Month (/YYYY/MM)'

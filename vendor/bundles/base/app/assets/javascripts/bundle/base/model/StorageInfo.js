@@ -4,16 +4,20 @@ Ext.define('Base.model.StorageInfo', {
     
 	fields : [
 		{ name : 'id', type : 'integer' },
+		{ name : 'name', type : 'string' },
+		{ name : 'description', type : 'string' },
+		{ name : 'category', type : 'string' },
+		{ name : 'tag', type : 'string' },
+		{ name : 'rule', type : 'string' },
+		{ name : 'path', type : 'string' },
+		{ name : 'default_flag', type : 'boolean' },
+		{ name : 'resource_flag', type : 'boolean' },
 		{ name : 'created_at', type : 'date' },
 		{ name : 'creator_id', type : 'integer' },
 		{ name : 'creator', type : 'auto' },
 		{ name : 'updated_at', type : 'date' },
 		{ name : 'updater_id', type : 'integer' },
-		{ name : 'updater', type : 'auto' },
-		{ name : 'description', type : 'string' },
-		{ name : 'name', type : 'string' },
-		{ name : 'rule', type : 'string' },
-		{ name : 'path', type : 'string' },
+		{ name : 'updater', type : 'auto' },		
 		{ name : 'cud_flag_', type : 'string' }
 	],
 

@@ -12,6 +12,16 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 		{ header : T('label.id'), dataIndex : 'id', hidden : true },
 		{ header : T('label.name'), dataIndex : 'name' , editor : { xtype : 'textfield' , maxLength : 62 } },
 		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, width : 175 },
+		{ 
+			header : T('label.category'), 
+			dataIndex : 'category', 
+			width : 85,
+			editor : { 
+				xtype : 'codecombo', 
+				commonCode : 'STORAGE_CATEGORY'
+			}
+		},
+		{ header : T('label.tag'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 64 }, flex : 1 },
 		{ header : T('label.path'), dataIndex : 'path' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ 
 			header : T('label.rule'), 
@@ -22,6 +32,18 @@ Ext.define('Base.view.storage_info.StorageInfo', {
 				commonCode : 'UPLOAD_FOLDER_RULE'
 			}
 		},
+		{ 
+			header : T('label.default'), 
+			dataIndex : 'default_flag', 
+			xtype : 'checkcolumn', 
+			width : 60 
+		},
+		{ 
+			header : T('label.resource'), 
+			dataIndex : 'resource_flag', 
+			xtype : 'checkcolumn', 
+			width : 60 
+		},		
 		{ 
 			header : T('label.updater'), 
 			dataIndex : 'updater', 
