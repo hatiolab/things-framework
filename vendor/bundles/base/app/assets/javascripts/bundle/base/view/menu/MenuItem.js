@@ -61,14 +61,13 @@ Ext.define('Base.view.menu.MenuItem', {
 			menuDisabled : true,
 			editor : { 
 				xtype : 'codecombo', 
-				commonCode : 'ROUTING_TYPE',
-				allowBlank : false 
+				commonCode : 'ROUTING_TYPE'
 			} 
 		},		
 		{ 
 			header : T('label.routing'), 
 			dataIndex : 'routing', 
-			width : 90,
+			width : 120,
 			menuDisabled : true,
 			editor : { 
 				xtype : 'textfield', 

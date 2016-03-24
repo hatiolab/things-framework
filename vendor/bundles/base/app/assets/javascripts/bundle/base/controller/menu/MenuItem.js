@@ -53,8 +53,8 @@ Ext.define('Base.controller.menu.MenuItem', {
 		var store = view.getStore();
 		store.load({
 			params : {
-				"parent_id-eq" : params.id,
-				"menu_type-noteq" : 'MENU'
+				"_q[parent_id-eq]" : params.id,
+				"_q[menu_type-noteq]" : 'MENU'
 			},
 			callback : function(records, operation, success) {
 				if(success) {
