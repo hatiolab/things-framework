@@ -6,6 +6,7 @@ class CreateLabelGroups < ActiveRecord::Migration
 			t.references :domain, :null => false
 			t.string :name, :null => false, :limit => 64
 			t.string :description, :limit => 255
+			t.string :category, :limit => 10
 			t.userstamps
 			t.timestamps
 		end
