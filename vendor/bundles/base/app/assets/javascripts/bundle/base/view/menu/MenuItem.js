@@ -107,6 +107,26 @@ Ext.define('Base.view.menu.MenuItem', {
 			} 
 		},
 		{ 
+			header : T('menu.DiyForm'), 
+			dataIndex : 'diy_form', 
+			width : 120, 
+			xtype : 'entitycolumn', 
+			editor : { 
+				xtype: 'entitycolumneditor', 
+				storeClass: 'Base.store.DiyForm' 
+			} 
+		},
+		{ 
+			header : T('menu.DiyGrid'), 
+			dataIndex : 'diy_grid', 
+			width : 120, 
+			xtype : 'entitycolumn', 
+			editor : { 
+				xtype: 'entitycolumneditor', 
+				storeClass: 'Base.store.DiyGrid' 
+			} 
+		},		
+		{ 
 			header : T('label.hidden_flag'), 
 			dataIndex : 'hidden_flag', 
 			xtype : 'checkcolumn', 

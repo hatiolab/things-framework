@@ -3,10 +3,16 @@ class Menu < ActiveRecord::Base
   include Multitenant
     
   stampable
+
   strip_cols [:name]
+  
   removing_trackable
 
   belongs_to :parent, :class_name => "Menu", :foreign_key => "parent_id"
+
+  belongs_to :diy_form
+
+  belongs_to :diy_grid
   
   validates_presence_of :name, :strict => true
   validates :name, length: { maximum: 60 }, :strict => true
