@@ -4,7 +4,7 @@ Ext.define('Base.view.entity.EntityColumn', {
 	xtype: 'entitycolumn',
 
 	defaultRenderer: function(v, meta, record, rowIdx, colIdx, store, view) {		
-		return (v && v.hasOwnProperty('name')) ? v.name : v;
+		return (v && v.hasOwnProperty('name')) ? v.name : '';
 		// return (v && v instanceof Object) ? v.name : v;
 	}
 	
