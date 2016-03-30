@@ -219,7 +219,7 @@ Ext.define('Base.view.entity.EntityColumnList', {
 			reverse_sort : false,
 			editor : '',
 			width : 80,
-			align : 'left',
+			align : '',
 			format : '',
 			cud_flag_ : ''
 		};

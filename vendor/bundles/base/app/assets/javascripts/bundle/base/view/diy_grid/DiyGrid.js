@@ -14,7 +14,7 @@ Ext.define('Base.view.diy_grid.DiyGrid', {
 		{ header : T('label.category'), dataIndex : 'category' , editor : { xtype : 'textfield' , maxLength : 20 } },
 		{ header : T('label.description'), dataIndex : 'description' , editor : { xtype : 'textfield' , maxLength : 255 }, flex : 1 },
 		{ header : T('label.updater'), dataIndex : 'updater', xtype : 'entitycolumn' },
-		{ header : T('label.updated_at'), dataIndex : 'updated_at', xtype : 'datecolumn', format : T('format.datetime'), width : 120 },
+		{ header : T('label.updated_at'), dataIndex : 'updated_at', xtype : 'datecolumn', format : T('format.datetime'), width : 120 }
 	],	
 	
 	dockedItems : [ {
