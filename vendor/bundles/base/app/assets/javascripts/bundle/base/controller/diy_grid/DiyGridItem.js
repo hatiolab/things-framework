@@ -26,7 +26,10 @@ Ext.define('Base.controller.diy_grid.DiyGridItem', {
 		
 		this.control({
 			'base_diy_grid_item' : this.EntryPoint(),
-			'base_diy_grid_form' : this.FormEventHandler()
+			'base_diy_grid_form' : this.FormEventHandler(),
+			'base_diy_grid_config_editor' : this.FormEventHandler(),
+			'base_diy_grid_fields_editor' : this.FormEventHandler(),
+			'base_diy_grid_columns_editor' : this.FormEventHandler()
 		});
 	},
 	
