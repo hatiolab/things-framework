@@ -39,16 +39,6 @@ Ext.define('Base.view.common_code.CommonCodeList', {
 		editor : {
 			xtype: 'textfield'
 		}
-	}, { 
-		header : T('label.updater'),
-		dataIndex : 'updater',
-		xtype : 'entitycolumn'
-	}, { 
-		dataIndex : 'updated_at', 
-		header : T('label.updated_at'), 
-		xtype : 'datecolumn', 
-		format : T('format.datetime'), 
-		width : 120 
 	} ],
 	
 	selModel : Ext.create('Ext.selection.CheckboxModel'),

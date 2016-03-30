@@ -7,10 +7,6 @@ Ext.define('Base.model.SubCode', {
 		{ name : 'name', type : 'string' },
 		{ name : 'parent_id', type : 'string' },
 		{ name : 'description', type : 'string' },
-		{ name : 'creator', type : 'auto' },
-		{ name : 'updater', type : 'auto' },
-		{ name : 'created_at', type : 'date' },
-		{ name : 'updated_at', type : 'date' },
 		{ name : 'cud_flag_', type : 'string' }
 	], 
 	

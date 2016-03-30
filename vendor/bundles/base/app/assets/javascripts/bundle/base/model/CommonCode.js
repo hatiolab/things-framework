@@ -5,7 +5,6 @@ Ext.define('Base.model.CommonCode', {
 	fields : [
 		{ name : 'id', type : 'string' },
 		{ name : 'name', type : 'string' },
-		{ name : 'parent_id', type : 'string' },
 		{ name : 'description', type : 'string' },
 		{ name : 'items', type: 'auto' },
 		{ name : 'creator', type : 'auto' },

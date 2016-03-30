@@ -355,9 +355,9 @@ Ext.define('App.controller.ApplicationController', {
 		// Top Menu 가 선택되면, 첫번째 서브메뉴를 자동으로 시작한다.
 		if(!prohibitAutoStartFirstMenu) {
 			Ext.Array.each(subMenus, function(menu) {
-				if(menu.menu_type !== 'SEPARATOR') {
+				if(menu.menu_type !== 'SEPARATOR' && menu.template && menu.template.indexOf('.') > 1) {
 					//HF.show(menu.template, {id : menu.id});
-					HF.show(menu.template, {}, { _menuId : record.get('id') });
+					HF.show(menu.template, {}, { _menuId : menu.id });
 					return false;
 				}
 				return true;

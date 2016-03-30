@@ -28,12 +28,12 @@ Ext.define('Base.controller.common_code.CommonCode', {
 		});
 	},
 
-	/**
-	 * 기본적으로 항상 적용되어야 할 검색 조건 - Parent Code가 없는 즉 상위 코드만 검색 화면에 나와야 한다.
-	 */
-	getDefaultFilters : function() {
-		return { 'parent_id-is_null' : '' };
-	},
+	// /**
+	//  * 기본적으로 항상 적용되어야 할 검색 조건 - Parent Code가 없는 즉 상위 코드만 검색 화면에 나와야 한다.
+	//  */
+	// getDefaultFilters : function() {
+	// 	return { 'parent_id-is_null' : '' };
+	// },
 
 	/**
 	 * 서버로 전달되서는 안 되는 값을 제거하거나 값을 선처리한다.

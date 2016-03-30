@@ -9,6 +9,6 @@ class EntityColumn < ActiveRecord::Base
   validates_uniqueness_of :name, :strict => true, :scope => [:entity_id]
   validates_presence_of :col_type, :strict => true
   
-  attr_accessor :max, :min, :editable, :trimable, :search_rank, :sort_rank, :reverse_sort
+  attr_accessor :max, :min, :editable, :trimable
   
 end

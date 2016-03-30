@@ -59,6 +59,8 @@ class MenusController < ResourceMultiUpdateController
   # 일단 오라클 쿼리로 구현, TODO Standard화 필요 
   #
   def auth_query(role_id_list)
+    domain_id = Domain.current_domain.id
+
     if(role_id_list && !role_id_list.empty?)
       sql = <<-EOS
         select 
@@ -75,6 +77,7 @@ class MenusController < ResourceMultiUpdateController
         	menus m,
         	permissions p 
         where 
+          m.domain_id = #{domain_id} and
         	m.id = p.resource_id and
         	m.hidden_flag != true and
         	p.resource_type = 'Menu' and
@@ -87,7 +90,7 @@ class MenusController < ResourceMultiUpdateController
       return sql
     else
       # 역할이 없다면 일단 모든 메뉴를 내려준다.
-      sql = "select id, name, description, category, parent_id, template, menu_type, rank, '' auth from menus where hidden_flag != true order by rank asc"
+      sql = "select id, name, description, category, parent_id, template, menu_type, rank, '' auth from menus where domain_id = #{domain_id} and hidden_flag != true order by rank asc"
       return sql
     end
   end

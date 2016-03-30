@@ -1,29 +1,47 @@
 Ext.Loader.setConfig({
-    enabled : true,
-    paths : {
+	enabled : true,
+	paths : {
 		'Frx' : 'assets/frx',
 		'ux' : 'assets/ux'
-    },
+	},
 	bundleRoot : 'assets/bundle/'
 });
 
 Ext.define('App.util.AppBaseUrl', {
 
-    singleton : true,
+	singleton : true,
 
-    alternateClassName : 'AppBaseUrl',
+	alternateClassName : 'AppBaseUrl',
 
-    requires : ['Ext.Ajax'],
+	requires : ['Ext.Ajax'],
  
-    constructor : function(config) {
+	constructor : function(config) {
 		Ext.Ajax.on('beforerequest', this.onBeforeAjaxRequest, this);
-    },
+		//Ext.Ajax.on('requestexception', this.onAjaxException, this);
+	},
+
+	/*onAjaxException : function(conn, resp, options, eOpts) {
+		// 0. 401 에러 체크 
+		if(resp.status != 401) {
+			return;
+		}
+
+		// 1. Popup
+
+		// 2. login 호출 
+
+		// 3. global variable - login, current domain 정보 수정 
+	},*/
  
 	/**
 	 * Before Ajax Request
 	 */
-    onBeforeAjaxRequest : function(connection, options) {
+	onBeforeAjaxRequest : function(connection, options) {
 		var basicServiceUrl = this.getBasicRestServiceUrl();
+
+		if(!basicServiceUrl) {
+			return;
+		}
 
 		if(options && options.method == 'PUT' && options.action == 'update') {
 			this.hookRestUpdate(options);
@@ -41,9 +59,9 @@ Ext.define('App.util.AppBaseUrl', {
 		if(options.url.length > 0 && options.url[0] == '/') {
 			options.url = options.url.substr(1);
 		}
-
+		
 		options.url = basicServiceUrl + options.url;
-    },
+	},
 
 	getBasicRestServiceUrl : function() {
 		var useRemoteServer = HF.setting.get('setting-use_remote_server');

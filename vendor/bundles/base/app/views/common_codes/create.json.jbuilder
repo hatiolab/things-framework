@@ -9,10 +9,7 @@ json.creator @common_code.creator, :id, :name if @common_code.creator
 
 json.items do |json|
 	json.array!(@codes) do |code|
-  		json.(code, :id, :name, :description)
-			
-			json.updated_at code.updated_at
-			json.updater code.updater, :id, :name if code.updater
+  		json.(code, :id, :name, :description)			
 	end
 end
 

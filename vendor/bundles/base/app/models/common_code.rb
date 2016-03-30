@@ -6,6 +6,8 @@ class CommonCode < ActiveRecord::Base
   strip_cols [:name]
   removing_trackable
 
+  has_many :common_code_details, -> { order('name asc') }, :dependent => :destroy, :foreign_key => 'parent_id'
+
   #belongs_to :parent, :class_name => "CommonCode", :foreign_key => "parent_id"
   
   validates_presence_of :name, :strict => true
@@ -13,21 +15,16 @@ class CommonCode < ActiveRecord::Base
   validates :description, length: { maximum: 255 }, :strict => true
   validates_uniqueness_of :name, :strict => true, :scope => :domain_id
   #validates_uniqueness_of :name, :strict => true, :scope => [:domain_id, :parent_id]
+    
+  def codes
+    return self.common_code_details
+  end
   
-  # after_destroy do
-  #   # 삭제할 코드가 Parent이면 Children을 모두 삭제한다.
-  #   self.codes.each { |code| code.destroy! } unless(self.parent)
-  # end
-  
-  # def codes
-  #   return (self.parent_id && !self.parent_id) ? nil : CommonCode.where(parent_id: self.id).order("name asc")
-  # end
-  
-  # def self.find_code(code_master_name, code_value)
-  #   code_master = CommonCode.find_by_name(code_master_name)
-  #   return nil unless(code_master)
-  #   return code_master.codes.find { |c| c.name == code_value }
-  # end
+  def self.find_code(code_master_name, code_value)
+    code_master = CommonCode.find_by_name(code_master_name)
+    return nil unless(code_master)
+    return code_master.codes.find { |c| c.name == code_value }
+  end
 
   # setup helper
   class SetupHelper

@@ -24,7 +24,7 @@ class CommonCodesController < ResourceMultiUpdateController
   
   private
     def resource_params
-      [ params.require(:common_code).permit(:name, :description, :parent_id) ]
+      [ params.require(:common_code).permit(:name, :description) ]
     end
     
     def multi_update_attrs_to_rem
