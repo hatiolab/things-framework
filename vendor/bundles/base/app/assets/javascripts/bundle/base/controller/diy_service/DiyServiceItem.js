@@ -145,7 +145,7 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 			var values = form.getValues();
 			var entity = form.getRecord();
 
-			Ext.Array.each(['diy_form', 'diy_grid', 'service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+			Ext.Array.each(['service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
 				delete entity.data[key];
 				delete values[key];
 			});

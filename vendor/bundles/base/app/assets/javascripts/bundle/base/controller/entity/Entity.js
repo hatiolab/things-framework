@@ -28,19 +28,15 @@ Ext.define('Base.controller.entity.Entity', {
 		});
 	},
 
-	/****************************************************************
-	 ** 			여기는 customizing area 						   **
-	 ****************************************************************/
 	/**
-	 * 서버로 전달되서는 안 되는 값을 제거하거나 값을 선처리한다.
-	 * 
-	 * @data
+	 * override : 서버로 전달되서는 안 되는 값을 제거하거나 값을 선처리한다.
 	 */
 	validateMultipleUpdateData : function(data) {
-		Ext.Array.each(['entity_columns', 'list_infographic', 'item_infographic', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
-			delete data[key];
-		});
-
+		this.callParent(arguments);
+		delete data['entity_columns'];
+		delete data['list_infographic'];
+		delete data['item_infographic'];
 		return data;
 	}
+
 });
