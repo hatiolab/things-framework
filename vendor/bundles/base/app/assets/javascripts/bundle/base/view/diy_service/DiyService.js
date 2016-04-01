@@ -14,6 +14,8 @@ Ext.define('Base.view.diy_service.DiyService', {
 		{ header : T('label.description'), dataIndex : 'description', flex : 1, editor : { xtype : 'textfield' } },
 		{ header : T('label.lang_type'), dataIndex : 'lang_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_ENGINE', allowBlank : false }, width : 85 },
 		{ header : T('label.script_type'), dataIndex : 'script_type', editor : { xtype : 'codecombo', commonCode : 'SCRIPT_TYPE', allowBlank : false }, width : 85 },
+		{ header : T('menu.DiyForm'), dataIndex : 'diy_form', width : 100, xtype : 'entitycolumn', editor : { xtype: 'entitycolumneditor', storeClass: 'Base.store.DiyForm' } },
+		{ header : T('menu.DiyGrid'), dataIndex : 'diy_grid', width : 100, xtype : 'entitycolumn', editor : { xtype: 'entitycolumneditor', storeClass: 'Base.store.DiyGrid' } },
 		{ header : T('label.active_flag'), dataIndex : 'active_flag', xtype : 'checkcolumn', width : 60 },
 		{ header : T('label.atomic_flag'), dataIndex : 'atomic_flag', xtype : 'checkcolumn', width : 60 },
 		{ header : T('label.updater'), dataIndex : 'updater', xtype : 'entitycolumn' },

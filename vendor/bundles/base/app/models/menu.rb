@@ -10,10 +10,8 @@ class Menu < ActiveRecord::Base
 
   belongs_to :parent, :class_name => "Menu", :foreign_key => "parent_id"
 
-  belongs_to :diy_form
+  belongs_to :diy_service
 
-  belongs_to :diy_grid
-  
   validates_presence_of :name, :strict => true
   validates :name, length: { maximum: 60 }, :strict => true
   validates :description, length: { maximum: 255 }, :strict => true

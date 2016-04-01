@@ -6,6 +6,9 @@ class DiyService < ActiveRecord::Base
   strip_cols [:name, :description]
   removing_trackable
 
+  belongs_to :diy_form
+  belongs_to :diy_grid
+
 	has_many :service_in_params, -> { order('rank asc') }, :as => :resource, :dependent => :destroy
 	has_many :service_out_params, -> { order('rank asc') }, :as => :resource, :dependent => :destroy
   

@@ -107,23 +107,13 @@ Ext.define('Base.view.menu.MenuItem', {
 			} 
 		},
 		{ 
-			header : T('menu.DiyForm'), 
-			dataIndex : 'diy_form', 
+			header : T('menu.DiyService'), 
+			dataIndex : 'diy_service', 
 			width : 120, 
 			xtype : 'entitycolumn', 
 			editor : { 
 				xtype: 'entitycolumneditor', 
-				storeClass: 'Base.store.DiyForm' 
-			} 
-		},
-		{ 
-			header : T('menu.DiyGrid'), 
-			dataIndex : 'diy_grid', 
-			width : 120, 
-			xtype : 'entitycolumn', 
-			editor : { 
-				xtype: 'entitycolumneditor', 
-				storeClass: 'Base.store.DiyGrid' 
+				storeClass: 'Base.store.DiyService' 
 			} 
 		},		
 		{ 
