@@ -62,10 +62,10 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 		    method : 'POST',
 		    jsonData : invokeParams,
 		    success : function(response) {
-		        var res = Ext.JSON.decode(response.responseText);
-				//testView.showResult(testView._record.get('service_out_params'), res);
-				testView.showResult(testView._record.get('service_out_params'), res);
-			},
+	        var res = Ext.JSON.decode(response.responseText);
+					//testView.showResult(testView._record.get('service_out_params'), res);
+					testView.showResult(testView._record.get('service_out_params'), res);
+				},
 			scope : this
 		});
 	},
@@ -114,7 +114,9 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 			description : '',
 			resource_type : 'DiyService',
 			resource_id : grid._record.get('id'),
-			rank : (grid.store.getCount() + 1) * 10
+			rank : (grid.store.getCount() + 1) * 10,
+			diy_form_id : '',
+			diy_grid_id : ''
 		};
 	},
 
@@ -123,7 +125,7 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 	 */	
 	onAfterUpdateList : function(grid, updateType, response) {
 		if(grid.xtype == 'base_diy_service_in_params_list' || grid.xtype == 'base_diy_service_out_params_list') {
-	        var parameters = Ext.JSON.decode(response.responseText);
+      var parameters = Ext.JSON.decode(response.responseText);
 			grid.store.loadRawData(parameters);
 			var successMsg = (updateType == 'd') ? T('text.Success to Delete') : T('text.Success to Update');
 			HF.msg.notice(successMsg);
@@ -143,7 +145,7 @@ Ext.define('Base.controller.diy_service.DiyServiceItem', {
 			var values = form.getValues();
 			var entity = form.getRecord();
 
-			Ext.Array.each(['service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
+			Ext.Array.each(['diy_form', 'diy_grid', 'service_in_params', 'service_out_params', 'creator', 'updater', 'creator_id', 'created_at', 'updater_id', 'updated_at'], function(key) {
 				delete entity.data[key];
 				delete values[key];
 			});

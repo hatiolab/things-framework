@@ -12,7 +12,7 @@ Ext.define('Base.model.DiyService', {
 		{ name : 'service_logic', type : 'text' },
 		{ name : 'atomic_flag', type : 'boolean' },
 		{ name : 'diy_form_id', type : 'string' },
-		{ name : 'diy_grid_id', type : 'string' },		
+		{ name : 'diy_grid_id', type : 'string' },
 		{ name : 'diy_form', type : 'auto' },
 		{ name : 'diy_grid', type : 'auto' },
 		{ name : 'service_in_params', type : 'auto' }, 
