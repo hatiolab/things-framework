@@ -15,6 +15,7 @@ class CreateMenus < ActiveRecord::Migration
 			t.string :routing, :limit => 64
 			t.string :routing_type, :limit => 20
 			t.refrences :diy_service
+			t.string :detail_form_id, :limit => 64
 			t.userstamps
 			t.timestamps
 			

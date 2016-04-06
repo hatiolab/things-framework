@@ -39,6 +39,7 @@ end
 CommonCode.setup :ROUTING_TYPE, {:description => 'Menu Routing Type'} do
   code :STATIC => 'Static'
   code :RESOURCE => 'Dynamic Resource'
+  code :DIY => 'Custom Resource'
 end
 
 CommonCode.setup :MENU_CATEGORY, {:description => 'STANDARD OR TERMINAL'} do
@@ -58,15 +59,19 @@ CommonCode.setup :ENTITY_REF_TYPE, {:description => 'Entity Reference Type'} do
 end
 
 CommonCode.setup :ENTITY_FIELD_TYPE, {:description => 'Entity Field Type'} do
-  code 'button' => 'Button'
-  code 'label' => 'Label'
-  code 'text' => 'Text'
-  code 'error' => 'Error'
-  code 'format' => 'Format'
-  code 'menu' => 'Menu'
-  code 'setting' => 'Setting'
-  code 'title' => 'Title'
-  code 'tooltip' => 'Tooltip'
+  code 'string' => 'string',
+  code 'text' => 'text',
+  code 'integer' => 'integer',
+  code 'float' => 'float',
+  code 'decimal' => 'decimal',
+  code 'date' => 'date',
+  code 'datetime' => 'datetime',
+  code 'timestamp' => 'timestamp',
+  code 'time' => 'time',
+  code 'boolean' => 'boolean',
+  code 'binary' => 'binary',
+  code 'long' => 'long',
+  code 'double' => 'double'
 end
 
 CommonCode.setup :QUERY_OPERATOR, {:description => 'Query Operator'} do

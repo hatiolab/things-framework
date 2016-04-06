@@ -17,6 +17,7 @@ Ext.define('Base.model.Menu', {
 		{ name : 'routing_type', type : 'string' },
 		{ name : 'diy_service_id', type : 'string' },
 		{ name : 'diy_service', type : 'auto' },
+		{ name : 'detail_form_id', type : 'string' },
 		{ name : 'creator', type : 'auto' },
 		{ name : 'updater', type : 'auto' },
 		{ name : 'created_at', type : 'date' }, 

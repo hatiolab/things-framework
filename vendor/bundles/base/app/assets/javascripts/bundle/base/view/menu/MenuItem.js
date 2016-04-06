@@ -107,6 +107,16 @@ Ext.define('Base.view.menu.MenuItem', {
 			} 
 		},
 		{ 
+			header : T('label.detail_form'), 
+			dataIndex : 'detail_form_id', 
+			width : 130, 
+			editor : { 
+				xtype : 'textfield', 
+				allowBlank : false,
+				maxLength : 64
+			} 
+		},		
+		{ 
 			header : T('menu.DiyService'), 
 			dataIndex : 'diy_service', 
 			width : 120, 
